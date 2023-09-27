@@ -82,15 +82,11 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## EJERCICIO 1 : Declaración y Tipos de Datos
 
-![Foto ejercicio 1](recursos/fotos/ejercicio1.png)
-
 [**Archivo HTML** ](ejercicio1.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio1.js)
 
 ## EJERCICIO 2 : Operaciones Aritméticas
-
-![Foto ejercicio 1](recursos/fotos/ejercicio2.png)
 
 [**Archivo HTML** ](ejercicio2.html)
 
@@ -98,15 +94,11 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## EJERCICIO 3 : Comparaciones
 
-![Foto ejercicio 1](recursos/fotos/ejercicio3.png)
-
 [**Archivo HTML** ](ejercicio3.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio3.js)
 
 ## EJERCICIO 4 : Estructuras Condicionales
-
-![Foto ejercicio 1](recursos/gifs/ejercicio4.gif)
 
 [**Archivo HTML** ](ejercicio4.html)
 
@@ -114,8 +106,28 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## EJERCICIO 5 : Bucles
 
-![Foto ejercicio 1](recursos/fotos/ejercicio5.png)
-
 [**Archivo HTML** ](ejercicio5.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio5.js)
+
+# 📸 Pruebas
+
+## EJERCICIO 1 : Declaración y Tipos de Datos
+
+![Foto ejercicio 1](recursos/fotos/ejercicio1.png)
+
+## EJERCICIO 2 : Operaciones Aritméticas
+![Foto ejercicio 2](recursos/fotos/ejercicio2.png)
+
+
+## EJERCICIO 3 : Comparaciones
+![Foto ejercicio 3](recursos/fotos/ejercicio3.png)
+
+
+## EJERCICIO 4 : Estructuras Condicionales
+
+![Foto ejercicio 4](recursos/gifs/ejercicio4.gif)
+
+## EJERCICIO 5 : Bucles
+
+![Foto ejercicio 5](recursos/fotos/ejercicio5.png)
