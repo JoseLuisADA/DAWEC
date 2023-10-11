@@ -126,18 +126,40 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ![Foto ejercicio 1](recursos/gifs/ejercicio1.gif)
 
+Cada vez que se hace click sobre el botón Cambiar color, el fondo de la página html cambia su color aleatoriamente
+
 ## EJERCICIO 2 : Operaciones Aritméticas
-![Foto ejercicio 2](recursos/fotos/ejercicio2.png)
+![Foto ejercicio 2](recursos/gifs/ejercicio2.gif)
+
+Al introducir un número en el input con la etiqueta Ancho, otro en el input con la etiqueta Alto y hacemos click en el botón Calcular Área, se multiplican ambos números y muestra el resultado debajo del botón Calcular Área con una frase introductoria : 
+
+"El área del Rectángulo"
+
 
 
 ## EJERCICIO 3 : Comparaciones
-![Foto ejercicio 3](recursos/fotos/ejercicio3.png)
+![Foto ejercicio 3](recursos/gifs/ejercicio3.gif)
 
+
+Al añadir una cadena de texto en el input con el placeholder "Escribe algo..." y se le da al botón Añadir a la lista, aparece la cadena de texto introducida debajo del input mencionado anteriormente en forma de enumerado usando el símbolo de un punto
 
 ## EJERCICIO 4 : Estructuras Condicionales
 
 ![Foto ejercicio 4](recursos/gifs/ejercicio4.gif)
 
+Al pasar el cursor por encima de una palabra, el fondo de la misma se convierte en azul y el color del texto en blanco.
+
+Al quitar el cursor de encima de la palabra, el fondo se convierte en gris y el color del texto cambia.
+
 ## EJERCICIO 5 : Bucles
 
-![Foto ejercicio 5](recursos/fotos/ejercicio5.png)
+![Foto ejercicio 5](recursos/gifs/ejercicio5.gif)
+
+Al hacer click en cualquier elemento de la página, muestra una alerta con el xpath del mismo y al aceptar haber leido la alerta, el mismo xpath se muestra debajo del texto:
+
+"Haz click en cualquier parte para obtener el XPath"
+
+Con una frase introductoria al xpath :
+
+"Último elemento clickeado XPath:"
+
