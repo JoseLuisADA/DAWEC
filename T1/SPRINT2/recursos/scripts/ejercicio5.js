@@ -1,3 +1,21 @@
+window.addEventListener("message", function(event) {
+    if (event.data) {
+        // Aquí puedes manejar la información del elemento clickeado en el iframe
+        const xpath = generarXPathConInfo(event.data);
+        alert(xpath);
+        document.getElementById('mostrarXPath').innerText = `Último elemento clickeado XPath: ${xpath}`;
+    }
+}, false);
+
+function generarXPathConInfo(info) {
+    // Aquí tu lógica para generar el XPath basado en la información recibida
+    if (info.id) {
+        return `//*[@id="${info.id}"]`;
+    } else {
+        return `//${info.tagName}`;
+    }
+}
+
 document.addEventListener('click', function(evento) {
     evento.preventDefault();  
     const xpath = generarXPath(evento.target);

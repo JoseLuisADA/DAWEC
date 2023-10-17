@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detector de XPath</title>
+    <title>Botón e Iframe</title>
     <script src="/T1/SPRINT2/recursos/scripts/ejercicio5.js" defer></script>
 </head>
 <body>
-    <h1>Haz clic en cualquier parte para obtener el XPath</h1>
-    <p id="mostrarXPath"></p>
+    
+    <button id="mainButton">Botón Principal</button>
+    
+    <iframe id="myIframe" width="200" height="200" frameborder="0" src="data:text/html;charset=utf-8,<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Contenido Iframe</title></head><body><script>document.addEventListener('click', function(event) {event.preventDefault(); const elementInfo = {id: event.target.id,tagName: event.target.tagName}; window.parent.postMessage(elementInfo, '*');});</script><button id='iframeButton'>Botón Iframe</button></body></html>">
+    </iframe>
+    
 </body>
 </html>
