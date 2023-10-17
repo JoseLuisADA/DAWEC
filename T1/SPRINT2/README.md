@@ -155,11 +155,5 @@ Al quitar el cursor de encima de la palabra, el fondo se convierte en gris y el 
 
 ![Foto ejercicio 5](recursos/gifs/ejercicio5.gif)
 
-Al hacer click en cualquier elemento de la página, muestra una alerta con el xpath del mismo y al aceptar haber leido la alerta, el mismo xpath se muestra debajo del texto:
-
-"Haz click en cualquier parte para obtener el XPath"
-
-Con una frase introductoria al xpath :
-
-"Último elemento clickeado XPath:"
+Al hacer click en cualquier elemento de la página, muestra una alerta con el xpath relativo del mismo.
 
