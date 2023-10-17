@@ -90,31 +90,31 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 # 💉  Implementación de la solución.
 
-## EJERCICIO 1 : Declaración y Tipos de Datos
+## EJERCICIO 1 : Cambio de Color con Botón
 
 [**Archivo HTML** ](ejercicio1.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio1.js)
 
-## EJERCICIO 2 : Operaciones Aritméticas
+## EJERCICIO 2 : Calculadora de Área
 
 [**Archivo HTML** ](ejercicio2.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio2.js)
 
-## EJERCICIO 3 : Comparaciones
+## EJERCICIO 3 : Listado Dinámico
 
 [**Archivo HTML** ](ejercicio3.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio3.js)
 
-## EJERCICIO 4 : Estructuras Condicionales
+## EJERCICIO 4 : Hover y Estilo Dinámico
 
 [**Archivo HTML** ](ejercicio4.html)
 
 [**Archivo JS** ](recursos/scripts/ejercicio4.js)
 
-## EJERCICIO 5 : Bucles
+## EJERCICIO 5 : Detección de Clics y Generación de XPath
 
 [**Archivo HTML** ](Sprint2Ejercicio5.html)
 
@@ -122,13 +122,13 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 # 📸 Pruebas
 
-## EJERCICIO 1 : Declaración y Tipos de Datos
+## EJERCICIO 1 : Cambio de Color con Botón
 
 ![Foto ejercicio 1](recursos/gifs/ejercicio1.gif)
 
 Cada vez que se hace click sobre el botón Cambiar color, el fondo de la página html cambia su color aleatoriamente
 
-## EJERCICIO 2 : Operaciones Aritméticas
+## EJERCICIO 2 : Calculadora de Área
 ![Foto ejercicio 2](recursos/gifs/ejercicio2.gif)
 
 Al introducir un número en el input con la etiqueta Ancho, otro en el input con la etiqueta Alto y hacemos click en el botón Calcular Área, se multiplican ambos números y muestra el resultado debajo del botón Calcular Área con una frase introductoria : 
@@ -137,13 +137,13 @@ Al introducir un número en el input con la etiqueta Ancho, otro en el input con
 
 
 
-## EJERCICIO 3 : Comparaciones
+## EJERCICIO 3 : Listado Dinámico
 ![Foto ejercicio 3](recursos/gifs/ejercicio3.gif)
 
 
 Al añadir una cadena de texto en el input con el placeholder "Escribe algo..." y se le da al botón Añadir a la lista, aparece la cadena de texto introducida debajo del input mencionado anteriormente en forma de enumerado usando el símbolo de un punto
 
-## EJERCICIO 4 : Estructuras Condicionales
+## EJERCICIO 4 : Hover y Estilo Dinámico
 
 ![Foto ejercicio 4](recursos/gifs/ejercicio4.gif)
 
@@ -151,7 +151,7 @@ Al pasar el cursor por encima de una palabra, el fondo de la misma se convierte 
 
 Al quitar el cursor de encima de la palabra, el fondo se convierte en gris y el color del texto cambia.
 
-## EJERCICIO 5 : Bucles
+## EJERCICIO 5 : Detección de Clics y Generación de XPath
 
 ![Foto ejercicio 5](recursos/gifs/ejercicio5.gif)
 
