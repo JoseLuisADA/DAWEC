@@ -124,36 +124,31 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## EJERCICIO 1 : Cambio de Color con Botón
 
+![Foto ejercicio 1](recursos/imagenes/test1.png)
+
 ![Foto ejercicio 1](recursos/gifs/ejercicio1.gif)
 
-Cada vez que se hace click sobre el botón Cambiar color, el fondo de la página html cambia su color aleatoriamente
 
 ## EJERCICIO 2 : Calculadora de Área
+
+![Foto ejercicio 1](recursos/imagenes/test2.png)
+
 ![Foto ejercicio 2](recursos/gifs/ejercicio2.gif)
 
-Al introducir un número en el input con la etiqueta Ancho, otro en el input con la etiqueta Alto y hacemos click en el botón Calcular Área, se multiplican ambos números y muestra el resultado debajo del botón Calcular Área con una frase introductoria : 
-
-"El área del Rectángulo"
-
-
-
 ## EJERCICIO 3 : Listado Dinámico
-![Foto ejercicio 3](recursos/gifs/ejercicio3.gif)
 
+![Foto ejercicio 1](recursos/imagenes/test3.png)
 
-Al añadir una cadena de texto en el input con el placeholder "Escribe algo..." y se le da al botón Añadir a la lista, aparece la cadena de texto introducida debajo del input mencionado anteriormente en forma de enumerado usando el símbolo de un punto
+![Foto ejercicio 1](recursos/gifs/ejercicio3.gif)
 
 ## EJERCICIO 4 : Hover y Estilo Dinámico
 
-![Foto ejercicio 4](recursos/gifs/ejercicio4.gif)
+![Foto ejercicio 1](recursos/imagenes/test4.png)
 
-Al pasar el cursor por encima de una palabra, el fondo de la misma se convierte en azul y el color del texto en blanco.
-
-Al quitar el cursor de encima de la palabra, el fondo se convierte en gris y el color del texto cambia.
+![Foto ejercicio 1](recursos/gifs/ejercicio4.gif)
 
 ## EJERCICIO 5 : Detección de Clics y Generación de XPath
 
-![Foto ejercicio 5](recursos/gifs/ejercicio5.gif)
+![Foto ejercicio 1](recursos/imagenes/test5.png)
 
-Al hacer click en cualquier elemento de la página, muestra una alerta con el xpath relativo del mismo.
-
+![Foto ejercicio 1](recursos/gifs/ejercicio5.gif)
