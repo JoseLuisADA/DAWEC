@@ -124,7 +124,7 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## EJERCICIO 1 : Cambio de Color con Botón
 
-![Foto ejercicio 1](recursos/imagenes/test1.png)
+![Foto ejercicio 1](recursos/imagenes/ttest1.png)
 
 ![Foto ejercicio 1](recursos/gifs/ejercicio1.gif)
 
@@ -137,7 +137,7 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## EJERCICIO 3 : Listado Dinámico
 
-![Foto ejercicio 1](recursos/imagenes/test3.png)
+![Foto ejercicio 1](recursos/imagenes/ttest3.png)
 
 ![Foto ejercicio 1](recursos/gifs/ejercicio3.gif)
 
