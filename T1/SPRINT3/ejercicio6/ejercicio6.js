@@ -21,11 +21,14 @@ const estudiantes = [
     { nombre: "Marina", ciudad: "Madrid", beca: true, edad: 20, calificaciones: { matematicas: 5, fisica: 9, historia: 8 } }
 ];
 
-function estudiantesDestacadosPorAsignatura(estudiantes, asignatura) {
-    // Ordenamos el array de estudiantes basado en las calificaciones de la asignatura dada.
+function estudiantesDestacadosPorAsignatura(estudiantes) {
+    const asignatura = prompt('Indica la asignatura:');
+    if (!asignatura || !estudiantes[0].calificaciones[asignatura]) {
+        console.error("Asignatura inválida o no proporcionada.");
+        return;
+    }
     const estudiantesOrdenados = estudiantes.sort((a, b) => b.calificaciones[asignatura] - a.calificaciones[asignatura]);
-    
-    // Retornamos los 3 primeros estudiantes del array ordenado.
+    console.log(`Los 3 mejores alumnos de ${asignatura} son:`);
     return estudiantesOrdenados.slice(0, 3);
 }
 
@@ -42,6 +45,7 @@ function asignaturaMenorRendimiento(estudiantes) {
         }
     }
 
+    console.log(`La asignatura con menor rendimiento es:`);
     return menorAsignatura;
 }
 
@@ -53,18 +57,38 @@ function mejoraNotasBeca(estudiantes) {
             }
         }
     }
+    console.log(`Las notas de los estudiantes con beca han sido aumentadas en un 10%`);
 }
 
-function filtrarPorCiudadYAsignatura(estudiantes, ciudad, asignatura) {
+function filtrarPorCiudadYAsignatura(estudiantes) {
+    const ciudad = prompt('Indica la ciudad:');
+    if (!ciudad) {
+        console.error("Ciudad no proporcionada.");
+        return;
+    }
+    const asignatura = prompt('Indica la asignatura:');
+    if (!asignatura || !estudiantes[0].calificaciones[asignatura]) {
+        console.error("Asignatura inválida o no proporcionada.");
+        return;
+    }
+    console.log(`Los estudiantes de ${ciudad}, que estudian ${asignatura}, son :`);
     return estudiantes.filter(estudiante => estudiante.ciudad === ciudad).sort((a, b) => b.calificaciones[asignatura] - a.calificaciones[asignatura]);
 }
 
-function estudiantesSinBecaPorCiudad(estudiantes, ciudad) {
-    return estudiantes.filter(estudiante => estudiante.ciudad === ciudad && !estudiante.beca).length;
+function estudiantesSinBecaPorCiudad(estudiantes) {
+    const ciudad = prompt('Indica la ciudad:');
+    if (!ciudad) {
+        console.error("Ciudad no proporcionada.");
+        return;
+    }
+    const estudiantesSinBeca = estudiantes.filter(estudiante => estudiante.ciudad === ciudad && !estudiante.beca).length;
+    console.log(`Esta es la cantidad de estudiantes sin beca en ${ciudad}:`);
+    return estudiantesSinBeca;
 }
 
 function promedioEdadEstudiantesConBeca(estudiantes) {
     const totalEdades = estudiantes.filter(estudiante => estudiante.beca).reduce((sum, estudiante) => sum + estudiante.edad, 0);
+    console.log('El promedio de edad de los estudiantes que tienen beca es :');
     return totalEdades / estudiantes.filter(estudiante => estudiante.beca).length;
 }
 
@@ -72,16 +96,17 @@ function mejoresEstudiantes(estudiantes) {
     return estudiantes.slice().sort((a, b) => {
         const promedioA = Object.values(a.calificaciones).reduce((sum, calificacion) => sum + calificacion, 0) / Object.keys(a.calificaciones).length;
         const promedioB = Object.values(b.calificaciones).reduce((sum, calificacion) => sum + calificacion, 0) / Object.keys(b.calificaciones).length;
+        console.log('Los 2 mejores estudiantes son :');
         return promedioB - promedioA;
     }).slice(0, 2);
 }
 
 function estudiantesAprobados(estudiantes) {
+    console.log('Los estudiantes aprobados son:');
     return estudiantes.filter(estudiante => Object.values(estudiante.calificaciones).every(calificacion => calificacion >= 5)).map(estudiante => estudiante.nombre);
 }
 
 function testFunction(funcName, ...args) {
     const result = window[funcName](estudiantes, ...args);
     console.log(result);
-    alert(JSON.stringify(result, null, 2));
 }

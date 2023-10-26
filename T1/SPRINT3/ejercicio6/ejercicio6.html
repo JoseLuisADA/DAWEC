@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="ejercicio6.js" defer></script>
-</head>
+    <link rel="stylesheet" href="ejercicio6.css" type="text/css">
 
+</head>
 <body>
-    <button onclick="testFunction('estudiantesDestacadosPorAsignatura', 'fisica')">Estudiantes Destacados en fisica</button>
+    <h1>RESULTADOS MOSTRADOS POR LA CONSOLA DEL NAVEGADOR</h1>
+
+    <p>Las asginaturas que imparte el curso son: <strong>matematicas, fisica e historia</strong></p>
+
+    <button onclick="testFunction('estudiantesDestacadosPorAsignatura')">Estudiantes Destacados de una asignatura</button>
     <button onclick="testFunction('asignaturaMenorRendimiento')">Asignatura con Menor Rendimiento</button>
     <button onclick="testFunction('mejoraNotasBeca')">Mejorar Notas de Estudiantes con Beca</button>
-    <button onclick="testFunction('filtrarPorCiudadYAsignatura', 'Madrid', 'fisica')">Estudiantes de Madrid por Física</button>
-    <button onclick="testFunction('estudiantesSinBecaPorCiudad', 'Madrid')">Estudiantes Sin Beca en Madrid</button>
+    <button onclick="testFunction('filtrarPorCiudadYAsignatura')">Estudiantes según la provincia y asignatura</button>
+    <button onclick="testFunction('estudiantesSinBecaPorCiudad')">Estudiantes sin beca según la provincia</button>
     <button onclick="testFunction('promedioEdadEstudiantesConBeca')">Promedio de Edad de Estudiantes con Beca</button>
     <button onclick="testFunction('mejoresEstudiantes')">Mejores Estudiantes</button>
     <button onclick="testFunction('estudiantesAprobados')">Estudiantes Aprobados</button>
