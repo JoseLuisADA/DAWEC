@@ -17,4 +17,8 @@ function longestString(stringsArray) {
 // Ejemplo de uso:
 const cadenas = ["manzana", "fresa", "sandía", "melocotón"];
 const resultado = longestString(cadenas);
-console.log(resultado); // { string: "melocotón", length: 9 }
+
+console.log('La palabra más larga de esta lista :'); 
+console.log(cadenas); 
+console.log('Es la palabra :'); 
+console.log(resultado); 

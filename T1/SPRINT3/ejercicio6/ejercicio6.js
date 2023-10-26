@@ -1,3 +1,6 @@
+console.log("BIENVENIDO/A A LA HERRAMIENTA DE GESTIÓN DE ALUMNOS");
+console.log('')
+
 const estudiantes = [
     { nombre: "Juan", ciudad: "Madrid", beca: false, edad: 21, calificaciones: { matematicas: 5, fisica: 7, historia: 6 } },
     { nombre: "Ana", ciudad: "Barcelona", beca: true, edad: 20, calificaciones: { matematicas: 9, fisica: 6, historia: 8 } },
@@ -20,6 +23,10 @@ const estudiantes = [
     { nombre: "Ricardo", ciudad: "Sevilla", beca: false, edad: 19, calificaciones: { matematicas: 6, fisica: 5, historia: 6 } },
     { nombre: "Marina", ciudad: "Madrid", beca: true, edad: 20, calificaciones: { matematicas: 5, fisica: 9, historia: 8 } }
 ];
+
+function mostrarEstudiantes() {
+    console.log(estudiantes);
+}
 
 function estudiantesDestacadosPorAsignatura(estudiantes) {
     const asignatura = prompt('Indica la asignatura:');

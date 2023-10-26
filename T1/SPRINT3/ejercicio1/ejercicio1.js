@@ -1,4 +1,4 @@
-const objetoPrueba = {a: 1, b: 2, c: 3, d:4};
+const objetoPrueba = {a: 1, b: 2, c: 3, d: 4};
 
 function filtrarPropiedades(objeto, propiedadesARecuperarArray){
 
@@ -14,4 +14,7 @@ function filtrarPropiedades(objeto, propiedadesARecuperarArray){
 
 }
 
-console.log(filtrarPropiedades(objetoPrueba, ["b", "b"]));
+console.log('Las propiedades del objeto:');
+console.log(objetoPrueba);
+console.log('Han sido extraidas:');
+console.log(filtrarPropiedades(objetoPrueba, ["a", "c"]));

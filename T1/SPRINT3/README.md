@@ -16,7 +16,7 @@ function filtrarPropiedades(obj, propiedades) {
     // Tu código aquí
 }
 
-Ejemplo:
+-----Ejemplo-----
 
 Entrada:
 var entrada = {a: 1, b: 2, c: 3, d: 4};
@@ -95,7 +95,7 @@ function ordenarTabla(personas, columna) {
     // Tu código aquí
 }
 
-Ejemplo de entrada:
+-----Ejemplo de entrada-----
 
 	var tabla = [
   {
@@ -168,7 +168,7 @@ Parte 8: Estudiantes con Todas las Materias Aprobadas
 
 Diseña una función que retorne un array con los nombres de los estudiantes que hayan aprobado todas las materias (considera aprobado con una calificación mayor o igual a 5).
 
-Ejemplo de Entrada:
+-----Ejemplo de entrada-----
 
 const estudiantes = [
     { nombre: "Juan", ciudad: "Madrid", beca: false, edad: 21, calificaciones: { matematicas: 5, fisica: 7, historia: 6 } },
@@ -242,80 +242,85 @@ Poned que las funciones se aplican cuando se pulsan botones diferentes, para que
 ``` 
 
 Formato de entrega
-
 Todos estos ejercicios se deberán entregar en el formato establecido en clase o tablón de classroom, respetando las horas de entrega de cada uno de ellos indicados en la tarea de classroom.
 
 ¿Qué y cómo se entrega?
-Hay que realizar cada apartado de ejercicios en HTML diferentes y subirlo al repositorio a la carpeta SPRINT 2
-Hay que realizar un vídeo en formato .gif para cada ejercicio en el que se interactúe de manera dinámica con la web y adjuntarlo en el README.md del repositorio GIT en la carpeta del sprint correspondiente.
-Hay que realizar una captura de pantalla de aquellos ejercicios que sean estáticos y adjuntarlos en el README.md del repositorio GIT en la carpeta del sprint correspondiente.
+
+- Hay que realizar cada apartado de ejercicios en HTML diferentes y subirlo al repositorio a la carpeta SPRINT 3.
+
+- Hay que realizar un vídeo en formato .gif para cada ejercicio en el que se interactúe de manera dinámica con la web y adjuntarlo en el README.md del repositorio GIT en la carpeta del sprint correspondiente.
+
+- Hay que realizar un plan de pruebas para aquellos ejercicios que sean dinámicos, es decir, de aquellos que se vayan a realizar .gif.
+
+- Hay que realizar una captura de pantalla de aquellos ejercicios que sean estáticos y adjuntarlos en el README.md del repositorio GIT en la carpeta del sprint correspondiente.
+Ejemplo de un README a continuación:
+
 
 # 📝 Diseño de la solución
 
-Para entregar la tarea correctamente habrá que seguir el formato de entrega indicado en la misma. Posteriormente, habrá que leer cada apartado para saber lo que se pide y con ayuda de ChatGPT y mia, resolverlos.
+Para entregar la tarea correctamente habrá que seguir el formato de entrega indicado en la misma y leer cada apartado para saber lo que se pide. Una vez comprendidos los ejercicios, con ayuda de ChatGPT y mia, resolverlos.
 
 # 💉  Implementación de la solución.
 
-## EJERCICIO 1 : Cambio de Color con Botón
+## Ejercicio 1: Filtrado de propiedades de un objeto
 
-[**Archivo HTML** ](ejercicio1.html)
+[**Archivo HTML** ](ejercicio1/ejercicio1.html)
 
-[**Archivo JS** ](recursos/scripts/ejercicio1.js)
+[**Archivo JS** ](ejercicio1/ejercicio1.js)
 
-## EJERCICIO 2 : Calculadora de Área
+## Ejercicio 2: Transposición de matrices
 
-[**Archivo HTML** ](ejercicio2.html)
+[**Archivo HTML** ](ejercicio2/ejercicio2.html)
 
-[**Archivo JS** ](recursos/scripts/ejercicio2.js)
+[**Archivo JS** ](ejercicio2/ejercicio2.js)
 
-## EJERCICIO 3 : Listado Dinámico
+##  Ejercicio 3: Fusión de objetos sin duplicados
 
-[**Archivo HTML** ](ejercicio3.html)
+[**Archivo HTML** ](ejercicio3/ejercicio3.html)
 
-[**Archivo JS** ](recursos/scripts/ejercicio3.js)
+[**Archivo JS** ](ejercicio3/ejercicio3.js)
 
-## EJERCICIO 4 : Hover y Estilo Dinámico
+## Ejercicio 4: Cadena más larga en un array
 
-[**Archivo HTML** ](ejercicio4.html)
+[**Archivo HTML** ](ejercicio4/ejercicio4.html)
 
-[**Archivo JS** ](recursos/scripts/ejercicio4.js)
+[**Archivo JS** ](ejercicio4/ejercicio4.js)
 
-## EJERCICIO 5 : Detección de Clics y Generación de XPath
+## Ejercicio 5: Ordenamiento interactivo de tabla de personas
 
-[**Archivo HTML** ](Sprint2Ejercicio5.html)
+[**Archivo HTML** ](ejercicio5/ejercicio5.html)
 
-[**Archivo JS** ](recursos/scripts/ejercicio5.js)
+[**Archivo JS** ](ejercicio5/ejercicio5.js)
+
+## Ejercicio 6: Análisis y Transformación Avanzada de Datos
+
+[**Archivo HTML** ](ejercicio6/ejercicio6.html)
+
+[**Archivo JS** ](ejercicio6/ejercicio6.js)
 
 # 📸 Pruebas
 
-## EJERCICIO 1 : Cambio de Color con Botón
+## Ejercicio 1: Filtrado de propiedades de un objeto
 
-![Foto ejercicio 1](recursos/imagenes/ttest1.png)
+![Foto ejercicio 1](recursos/imagenes/ejercicio1.png)
 
-![Foto ejercicio 1](recursos/gifs/ejercicio1.gif)
+## Ejercicio 2: Transposición de matrices
 
 
-## EJERCICIO 2 : Calculadora de Área
+![Foto ejercicio 2](recursos/imagenes/ejercicio2.png)
 
-![Foto ejercicio 1](recursos/imagenes/test2.png)
+## Ejercicio 3: Fusión de objetos sin duplicados
 
-![Foto ejercicio 2](recursos/gifs/ejercicio2.gif)
+![Foto ejercicio 3](recursos/imagenes/ejercicio3.png)
 
-## EJERCICIO 3 : Listado Dinámico
+## Ejercicio 4: Cadena más larga en un array
 
-![Foto ejercicio 1](recursos/imagenes/ttest3.png)
+![Foto ejercicio 4](recursos/imagenes/ejercicio4.png)
 
-![Foto ejercicio 1](recursos/gifs/ejercicio3.gif)
+## Ejercicio 5: Ordenamiento interactivo de tabla de personas
 
-## EJERCICIO 4 : Hover y Estilo Dinámico
+![Foto ejercicio 5](recursos/gifs/ejercicio5.gif)
 
-![Foto ejercicio 1](recursos/imagenes/test4.png)
+## Ejercicio 6: Análisis y Transformación Avanzada de Datos
 
-![Foto ejercicio 1](recursos/gifs/ejercicio4.gif)
-
-## EJERCICIO 5 : Detección de Clics y Generación de XPath
-
-![Foto ejercicio 1](recursos/imagenes/test5.png)
-
-![Foto ejercicio 1](recursos/gifs/ejercicio5.gif)
-
+![Foto ejercicio 6](recursos/gifs/ejercicio6.gif)

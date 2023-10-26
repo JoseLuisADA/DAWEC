@@ -24,4 +24,9 @@ const matrizOriginal = [
 ];
 
 const matrizTranspuesta = transponerMatriz(matrizOriginal);
+
+
+console.log('La matriz:');
+console.log(matrizOriginal);
+console.log('Ha sido transpuesta:');
 console.log(matrizTranspuesta);

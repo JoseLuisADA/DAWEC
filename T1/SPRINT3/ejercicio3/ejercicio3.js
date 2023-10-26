@@ -13,4 +13,9 @@ const objetoEjemplo2 = {
     ciudad: "Sevilla"
 };
 
+console.log('El objeto:');
+console.log(objetoEjemplo1);
+console.log('Y el objeto:');
+console.log(objetoEjemplo2);
+console.log('Se han fusionado:');
 console.log(fusionarObjetos(objetoEjemplo1, objetoEjemplo2));
