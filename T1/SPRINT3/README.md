@@ -325,4 +325,3 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ![Test1Ejercicio6](recursos/imagenes/tests/testsEjercicio6/test1/test.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6.gif)
