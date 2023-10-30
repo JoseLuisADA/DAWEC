@@ -302,26 +302,84 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## Ejercicio 1: Filtrado de propiedades de un objeto
 
-![Foto ejercicio 1](recursos/imagenes/ejercicio1.png)
+![Foto Test ejercicio 1](recursos/imagenes/tests/testsEjercicio1/testEjercicio1.png)
+
+![Foto ejercicio 1](recursos/imagenes/ejercicio1/ejercicio1.png)
 
 ## Ejercicio 2: Transposición de matrices
 
 
-![Foto ejercicio 2](recursos/imagenes/ejercicio2.png)
+![Foto Test ejercicio 2](recursos/imagenes/tests/testsEjercicio2/testEjercicio2.png)
+
+![Foto ejercicio 2](recursos/imagenes/ejercicio2/ejercicio2.png)
 
 ## Ejercicio 3: Fusión de objetos sin duplicados
 
-![Foto ejercicio 3](recursos/imagenes/ejercicio3.png)
+![Foto Test ejercicio 3](recursos/imagenes/tests/testsEjercicio3/testEjercicio3.png)
+
+![Foto ejercicio 3](recursos/imagenes/ejercicio3/ejercicio3.png)
 
 ## Ejercicio 4: Cadena más larga en un array
 
-![Foto ejercicio 4](recursos/imagenes/ejercicio4.png)
+![Foto Test ejercicio 4](recursos/imagenes/tests/testsEjercicio4/testEjercicio4.png)
+
+![Foto ejercicio 4](recursos/imagenes/ejercicio4/ejercicio4.png)
 
 ## Ejercicio 5: Ordenamiento interactivo de tabla de personas
 
-![Foto ejercicio 5](recursos/gifs/ejercicio5.gif)
+![Foto Test 1 ejercicio 5](recursos/imagenes/tests/testsEjercicio5/test1Ejercicio5.png)
+
+![Foto 1 ejercicio 5](recursos/gifs/ejercicio5/ejercicio5Test1.gif)
+
+![Foto Test 2 ejercicio 5](recursos/imagenes/tests/testsEjercicio5/test2Ejercicio5.png)
+
+![Foto 2 ejercicio 5](recursos/gifs/ejercicio5/ejercicio5Test2.gif)
+
+![Foto Test 3 ejercicio 5](recursos/imagenes/tests/testsEjercicio5/test3Ejercicio5.png)
+
+![Foto 3 ejercicio 5](recursos/gifs/ejercicio5/ejercicio5Test3.gif)
+
+![Foto Test 4 ejercicio 5](recursos/imagenes/tests/testsEjercicio5/test4Ejercicio5.png)
+
+![Foto 4 ejercicio 5](recursos/gifs/ejercicio5/ejercicio5Test4.gif)
+
+![Foto Test 5 ejercicio 5](recursos/imagenes/tests/testsEjercicio5/test5Ejercicio5.png)
+
+![Foto 5 ejercicio 5](recursos/gifs/ejercicio5/ejercicio5Test5.gif)
+
+
 
 ## Ejercicio 6: Análisis y Transformación Avanzada de Datos
 
-![Test1Ejercicio6](recursos/imagenes/tests/testsEjercicio6/test1/test.png)
+![Foto Test 1 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test1Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/ejercicio6Test1.gif)
+
+![Foto Test 2 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test2Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/ejercicio6Test2.gif)
+
+![Foto Test 3 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test3Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+
+![Foto Test 4 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test4Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+
+![Foto Test 5 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test5Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+
+![Foto Test 6 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test6Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+
+![Foto Test 7 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test7Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+
+![Foto Test 8 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test8Ejercicio6.png)
+
+![Foto ejercicio 6](recursos/gifs/ejercicio6/)
 
