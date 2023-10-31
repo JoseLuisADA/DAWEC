@@ -353,33 +353,33 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ![Foto Test 1 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test1Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/ejercicio6Test1.gif)
+![Gif ejercicio 6 boton 1](recursos/gifs/ejercicio6/ejercicio6Test1.gif)
 
 ![Foto Test 2 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test2Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/ejercicio6Test2.gif)
+![Gif ejercicio 6 boton 2](recursos/gifs/ejercicio6/ejercicio6Test2.gif)
 
 ![Foto Test 3 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test3Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/)
-
+![Gif ejercicio 6 boton 3](recursos/gifs/ejercicio6/ejercicio6Test3.gif)
+ 
 ![Foto Test 4 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test4Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+![Gif ejercicio 6 boton 4](recursos/gifs/ejercicio6/ejercicio6Test4.gif)
 
 ![Foto Test 5 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test5Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+![Gif ejercicio 6 boton 5](recursos/gifs/ejercicio6/ejercicio6Test5.gif)
 
 ![Foto Test 6 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test6Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+![Gif ejercicio 6 boton 6](recursos/gifs/ejercicio6/ejercicio6Test6.gif)
 
 ![Foto Test 7 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test7Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+![Gif ejercicio 6 boton 7](recursos/gifs/ejercicio6/ejercicio6Test7.gif)
 
 ![Foto Test 8 ejercicio 6](recursos/imagenes/tests/testsEjercicio6/test8Ejercicio6.png)
 
-![Foto ejercicio 6](recursos/gifs/ejercicio6/)
+![Gif ejercicio 6 boton 8](recursos/gifs/ejercicio6/ejercicio6Test8.gif)
 
