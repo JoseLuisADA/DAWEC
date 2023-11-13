@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Películas</title>
+    <script src="ejercicio4.js" defer></script>
+</head>
+<body>
+    <h1>Explorador de Películas</h1>
+    
+    <label for="keyword">Palabra clave:</label>
+    <input type="text" id="keyword" name="keyword">
+    
+    <label for="genre">Género:</label>
+    <select id="genre" name="genre">
+        <!-- Las opciones de género se cargarán desde la API -->
+    </select>
+    
+    <button id="searchButton">Buscar</button>
+
+    <div id="results">
+        <!-- Los resultados de la búsqueda se mostrarán aquí -->
+    </div>
+    
+    <button id="prevButton">Anterior</button>
+    <button id="nextButton">Siguiente</button>
+
+    <script src="app.js"></script>
+</body>
+</html>

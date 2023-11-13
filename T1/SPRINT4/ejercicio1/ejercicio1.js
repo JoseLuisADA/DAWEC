@@ -5,6 +5,7 @@ async function fetchPokemonData(pokemonName) {
             throw new Error(`Pokemon not found: ${response.statusText}`);
         }
         const data = await response.json();
+
         console.log(`Name: ${data.name}`);
         console.log(`ID: ${data.id}`);
         console.log(`Types: ${data.types.map(type => type.type.name).join(', ')}`);
@@ -14,4 +15,4 @@ async function fetchPokemonData(pokemonName) {
     }
 }
 
-fetchPokemonData('pikachu'); // Replace 'pikachu' with any other Pokémon name
+fetchPokemonData('pikachu');
