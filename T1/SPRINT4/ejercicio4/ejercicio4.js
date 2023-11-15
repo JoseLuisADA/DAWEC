@@ -1,8 +1,10 @@
+const apiKey = '0b60ee07d5ee1df646132e5ab860e74d';
+
 document.addEventListener('DOMContentLoaded', function() {
     loadGenres();
     document.getElementById('searchButton').addEventListener('click', function() {
         const keyword = document.getElementById('keyword').value;
-        const genre = document.getElementById('genre').value;
+        const genre = document.getElementById('genre').value || ''; // Asegura que el género sea una cadena vacía si no se selecciona nada
         searchMovies(keyword, genre, 1); // Iniciar búsqueda en la página 1
     });
     document.getElementById('nextButton').addEventListener('click', function() {
@@ -20,11 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
 let currentPage = 1;
 
 async function loadGenres() {
-    // Sustituye 'YOUR_API_KEY' con tu propia clave de la API de TMDb
-    const apiKey = 'YOUR_API_KEY';
     const genreResponse = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=es-ES`);
     const genreData = await genreResponse.json();
     const genreSelect = document.getElementById('genre');
+    // La opción "Todos los géneros" ya está añadida en el HTML, así que solo añadimos las demás
     genreData.genres.forEach(genre => {
         const option = document.createElement('option');
         option.value = genre.id;
@@ -34,11 +35,22 @@ async function loadGenres() {
 }
 
 async function searchMovies(keyword, genre, page) {
-    const apiKey = 'YOUR_API_KEY'; // Reemplaza con tu clave de API de TMDb
     try {
-        const response = await fetch(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&include_adult=false&page=${page}&with_genres=${genre}&query=${keyword}`
-        );
+        let url = '';
+        // Verifica si el género está seleccionado
+        if (genre) {
+            // Utiliza el endpoint de descubrimiento si se selecciona un género
+            url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=es-ES&sort_by=popularity.desc&include_adult=false&page=${page}&with_genres=${genre}`;
+            // Añade la palabra clave a la búsqueda si está presente
+            if (keyword) {
+                url += `&query=${keyword}`;
+            }
+        } else {
+            // Utiliza el endpoint de búsqueda si solo se ingresa una palabra clave
+            url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=es-ES&query=${keyword}&page=${page}&include_adult=false`;
+        }
+
+        const response = await fetch(url);
         const data = await response.json();
         currentPage = data.page; // Actualiza la página actual
         displayResults(data.results); // Función para mostrar los resultados
@@ -51,9 +63,14 @@ async function searchMovies(keyword, genre, page) {
 function displayResults(movies) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // Limpiar resultados anteriores
+
     movies.forEach(movie => {
         const movieElement = document.createElement('div');
+        movieElement.classList.add('movie'); // Agrega una clase para estilizar
+        const posterPath = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'path_to_default_image.jpg'; // Asegúrate de tener una imagen por defecto
+
         movieElement.innerHTML = `
+            <img src="${posterPath}" alt="${movie.title}">
             <h3>${movie.title}</h3>
             <p>Año de lanzamiento: ${movie.release_date}</p>
             <p>Resumen: ${movie.overview}</p>

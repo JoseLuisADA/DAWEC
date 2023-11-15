@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorador de Películas</title>
     <script src="ejercicio4.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Explorador de Películas</h1>
@@ -14,6 +15,7 @@
     
     <label for="genre">Género:</label>
     <select id="genre" name="genre">
+        <option value="">Todos los géneros</option>
         <!-- Las opciones de género se cargarán desde la API -->
     </select>
     
@@ -25,7 +27,5 @@
     
     <button id="prevButton">Anterior</button>
     <button id="nextButton">Siguiente</button>
-
-    <script src="app.js"></script>
 </body>
 </html>
