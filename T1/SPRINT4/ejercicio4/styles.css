@@ -51,6 +51,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: block;
 }
 
 button:hover {
@@ -80,4 +81,23 @@ button:hover {
 
 #prevButton:hover, #nextButton:hover {
     background-color: #333;
+}
+
+.is-favorite {
+    color: gold; /* Esto cambiará el color del texto o del botón/icono para resaltar que es favorito */
+}
+
+.favorite-button {
+    /* Estilos para el botón de favoritos */
+    background-color: #E50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.favorite-button:hover {
+    /* Cambios en el estilo cuando el cursor está encima del botón */
+    background-color: #f40612;
 }

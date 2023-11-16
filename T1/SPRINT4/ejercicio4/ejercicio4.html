@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorador de Películas</title>
+    <title>Conocimiento a prueba</title>
     <script src="ejercicio4.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Explorador de Películas</h1>
+    <h1>PROBANDO CONOCIMIENTOS DE PROGRAMACIÓN JOSE LUIS</h1>
     
+    <button id="loginButton">Obtener session_id</button>
+    <button id="recoverListButton">Recuperar Lista</button>
+    <form id="createListForm">
+        <label for="listName">Nombre de la Lista:</label>
+        <input type="text" id="listName" name="listName" required><br><br>
+
+        <label for="listDescription">Descripción de la Lista:</label>
+        <textarea id="listDescription" name="listDescription" required></textarea><br><br>
+
+        <button type="submit">Crear Lista</button>
+    </form>
+    
+    <br/>
+    <br/>
+
     <label for="keyword">Palabra clave:</label>
     <input type="text" id="keyword" name="keyword">
     
@@ -20,6 +35,13 @@
     </select>
     
     <button id="searchButton">Buscar</button>
+
+    <div id="favorites">
+        <h2>Mis Favoritos</h2>
+        <div id="favorite-results">
+            <!-- Los resultados de los favoritos se mostrarán aquí -->
+        </div>
+    </div>
 
     <div id="results">
         <!-- Los resultados de la búsqueda se mostrarán aquí -->
