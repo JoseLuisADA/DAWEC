@@ -4,50 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conocimiento a prueba</title>
-    <script src="ejercicio4.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="ejercicio4.js" defer></script>
 </head>
 <body>
-    <h1>PROBANDO CONOCIMIENTOS DE PROGRAMACIÓN JOSE LUIS</h1>
-    
-    <button id="loginButton">Obtener session_id</button>
-    <button id="recoverListButton">Recuperar Lista</button>
-    <form id="createListForm">
-        <label for="listName">Nombre de la Lista:</label>
-        <input type="text" id="listName" name="listName" required><br><br>
+    <header>
+        <h1>PROBANDO CONOCIMIENTOS DE PROGRAMACIÓN JOSE LUIS</h1>
+    </header>
 
-        <label for="listDescription">Descripción de la Lista:</label>
-        <textarea id="listDescription" name="listDescription" required></textarea><br><br>
+    <nav>
+        <button id="setApiKeyButton">Establecer API Key</button>
+        <button id="loginButton">Dar tu consentimiento</button>
+        <button id="recoverListButton">Recuperar Lista</button>
+    </nav>
 
-        <button type="submit">Crear Lista</button>
-    </form>
-    
-    <br/>
-    <br/>
+    <fieldset>
+        <legend>Crear Lista</legend>
+        <form id="createListForm">
+            <label for="listName">Nombre de la Lista:</label>
+            <input type="text" id="listName" name="listName" required><br><br>
 
-    <label for="keyword">Palabra clave:</label>
-    <input type="text" id="keyword" name="keyword">
-    
-    <label for="genre">Género:</label>
-    <select id="genre" name="genre">
-        <option value="">Todos los géneros</option>
-        <!-- Las opciones de género se cargarán desde la API -->
-    </select>
-    
-    <button id="searchButton">Buscar</button>
+            <label for="listDescription">Descripción de la Lista:</label>
+            <textarea id="listDescription" name="listDescription" required></textarea><br><br>
 
-    <div id="favorites">
-        <h2>Mis Favoritos</h2>
+            <button type="submit">Crear Lista</button>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>Buscar Películas</legend>
+        <label for="keyword">Título:</label>
+        <input type="text" id="keyword" name="keyword">
+        
+        <label for="genre">Género:</label>
+        <select id="genre" name="genre">
+            <option value="">Todos los géneros</option>
+            <!-- Las opciones de género se cargarán desde la API -->
+        </select>
+        
+        <button id="searchButton">Buscar</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Mis Favoritos</legend>
         <div id="favorite-results">
             <!-- Los resultados de los favoritos se mostrarán aquí -->
         </div>
-    </div>
+    </fieldset>
 
-    <div id="results">
-        <!-- Los resultados de la búsqueda se mostrarán aquí -->
-    </div>
-    
-    <button id="prevButton">Anterior</button>
-    <button id="nextButton">Siguiente</button>
+    <fieldset>
+        <legend>Elementos Encontrados</legend>
+        <div id="results">
+            <!-- Los resultados de la búsqueda se mostrarán aquí -->
+        </div>
+        <button id="prevButton">Anterior</button>
+        <button id="nextButton">Siguiente</button>
+    </fieldset>
 </body>
 </html>

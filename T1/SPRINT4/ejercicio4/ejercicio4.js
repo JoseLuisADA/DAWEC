@@ -190,7 +190,7 @@ async function recoverListId(listName) {
         const list = data.results.find(l => l.name === listName);
         if (list) {
             listId = list.id;
-            localStorage.setItem('tmdbListId', listId); // Guardar el listId recuperado
+            console.log('Lista cargada');
             loadFavorites(); // Cargar favoritos de la lista recuperada
         } else {
             console.error('Lista no encontrada.');
@@ -278,7 +278,12 @@ async function removeMovieFromList(movieId) {
         const data = await response.json();
         if (data.success) {
             console.log('Película eliminada de la lista de favoritos.');
-            loadFavorites(); // Recargar la lista de favoritos para reflejar el cambio
+
+            // Encuentra y elimina el elemento de película del DOM
+            const movieElement = document.querySelector(`.movie[data-movie-id="${movieId}"]`);
+            if (movieElement) {
+                movieElement.remove();
+            }
         } else {
             console.error('Error al eliminar la película de la lista:', data.status_message);
         }
