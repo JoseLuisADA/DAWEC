@@ -6,11 +6,13 @@ body {
     padding: 0;
     max-width: 1200px;
 }
+
 form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+
 form label, form input, form textarea, form button {
     margin-bottom: 10px;
 }
@@ -21,45 +23,71 @@ form label, form input, form textarea, form button {
     border: 1px solid #333;
     border-radius: 8px;
     background-color: #202020;
+    position: relative;
+    overflow: hidden;
 }
 
 .movie img {
     width: 100%;
     border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-h1 {
-    text-align: center;
-    color: #E50914; /* Color similar a Netflix */
+.movie:hover img {
+    transform: scale(1.1);
+    opacity: 0.3;
 }
 
-#results {
+.movie .movie-title,
+.movie .movie-release-date,
+.movie .movie-overview {
+    display: none;
+}
+
+.movie:hover .movie-title,
+.movie:hover .movie-release-date,
+.movie:hover .movie-overview {
+    display: block;
+    position: absolute;
+    bottom: 40px; /* Ajustado para dejar espacio para el botón */
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9em;
+    max-height: 120px; /* Ajustado para reducir la altura máxima */
+    overflow: auto;
+}
+
+#results, #favorite-results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px;
 }
-input, select, button {
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 4px;
-}
+
 @media (max-width: 768px) {
     #favorites, #results {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
-input, select {
-    width: calc(100% - 22px); /* Ajustar el ancho para incluir el padding */
+
+input, select, button {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    width: calc(100% - 22px);
 }
 
 input:focus, select:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
+
 button {
-    background-color: #E50914; /* Color similar a Netflix */
+    background-color: #E50914;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -68,54 +96,6 @@ button {
 }
 
 button:hover {
-    background-color: #f40612;
-}
-.movie img {
-    transition: transform 0.3s ease;
-}
-
-.movie img:hover {
-    transform: scale(1.05);
-}
-.movie {
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-section {margin-bottom: 20px}
-#prevButton, #nextButton {
-    transition: background-color 0.3s ease;
-}
-
-#prevButton:hover, #nextButton:hover {
-    background-color: #333;
-}
-
-.is-favorite {
-    color: gold; /* Esto cambiará el color del texto o del botón/icono para resaltar que es favorito */
-}
-
-.favorite-button {
-    /* Estilos para el botón de favoritos */
-    background-color: #E50914;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin-left: 10px;
-}
-#favorites, #results {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-}
-.favorite-button:hover {
-    /* Cambios en el estilo cuando el cursor está encima del botón */
     background-color: #f40612;
 }
 
@@ -138,39 +118,34 @@ legend {
     color: #E50914;
 }
 
-.movie {
-    /* Estilos existentes... */
-    position: relative;
-    overflow: hidden;
-}
-
-.movie img {
-    /* Estilos existentes... */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.movie:hover img {
-    transform: scale(1.1);
-    opacity: 0.3;
-}
-
-.movie .movie-title,
-.movie .movie-release-date,
-.movie .movie-overview,
-.movie .movie-vote-average {
-    display: none;
-}
-
-.movie:hover .movie-title,
-.movie:hover .movie-release-date,
-.movie:hover .movie-overview,
-.movie:hover .movie-vote-average {
-    display: block;
+.favorite-button {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px;
+    background-color: #E50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
     border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-button:hover {
+    background-color: #f40612;
+}
+
+.is-favorite {
+    color: gold;
+}
+
+.movie {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }

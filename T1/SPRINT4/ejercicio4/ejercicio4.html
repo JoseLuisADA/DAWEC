@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conocimiento a prueba</title>
+    <title>EXFLIX</title>
     <link rel="stylesheet" href="styles.css">
     <script src="ejercicio4.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>PROBANDO CONOCIMIENTOS DE PROGRAMACIÓN JOSE LUIS</h1>
+        <h1>EXFLIX</h1>
     </header>
 
     <nav>
         <button id="setApiKeyButton">Establecer API Key</button>
         <button id="loginButton">Dar tu consentimiento</button>
-        <button id="recoverListButton">Recuperar Lista</button>
+        <button id="logoutButton" style="display: none;">Cerrar Sesión</button>
+        <button id="recoverListButton" style="display: none;">Recuperar Lista</button>
     </nav>
 
-    <fieldset>
+    <fieldset style="display: none;" id="createListSection">
         <legend>Crear Lista de Peliculas Favoritas</legend>
         <form id="createListForm">
             <label for="listName">Nombre de la Lista:</label>
@@ -38,14 +39,14 @@
         
         <label for="genre">Género:</label>
         <select id="genre" name="genre">
-            <option value="">Todos los géneros</option>
+            <option value="">-</option>
             <!-- Las opciones de género se cargarán desde la API -->
         </select>
         
         <button id="searchButton">Buscar</button>
     </fieldset>
 
-    <fieldset>
+    <fieldset id="favoritesFieldset" style="display: none;">
         <legend>Favoritas</legend>
         <div id="favorite-results">
             <!-- Los resultados de los favoritos se mostrarán aquí -->

@@ -1,8 +1,18 @@
-const apiKey = '0b60ee07d5ee1df646132e5ab860e74d';
-let listId = null; // Asegúrate de reemplazar esto con tu listId real si ya existe uno
+let apiKey = '';
+let listId = null;
 let sessionId = ''; 
-
 let currentPage = 1;
+let loggedIn = false;
+
+function handleLogout() {
+    sessionId = '';
+    listId = null;
+    loggedIn = false;
+    localStorage.removeItem('tmdbSessionId'); // Elimina la session_id del almacenamiento local
+    updateUIForLogout(); // Actualiza la UI para reflejar el estado de logout
+}
+
+document.getElementById('logoutButton').addEventListener('click', handleLogout);
 
 async function createRequestToken() {
     try {
@@ -16,7 +26,7 @@ async function createRequestToken() {
 
 // Función para redirigir al usuario para que autorice el token de solicitud
 function askUserForPermission(requestToken) {
-    const authUrl = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://127.0.0.1:5500/T1/SPRINT4/ejercicio4/ejercicio4.html`;
+    const authUrl = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://127.0.0.1:5500/ejercicio4/ejercicio4.html`;
     window.location.href = authUrl; // Redirige al usuario para la autorización
 }
 
@@ -29,59 +39,76 @@ async function createSessionId(requestToken) {
         const data = await response.json();
         if (data.success) {
             sessionId = data.session_id;
-            // Aquí puedes guardar la sessionId en localStorage o cookies si es necesario
-            // Por ejemplo: localStorage.setItem('tmdbSessionId', sessionId);
+            localStorage.setItem('tmdbSessionId', sessionId); // Guarda la session_id en el almacenamiento local
+            loggedIn = true; // Establece loggedIn en true
+            updateUIAfterLogin(); // Actualiza la UI
         }
     } catch (error) {
         console.error('Error al crear la session_id:', error);
     }
 }
 
-// Función para iniciar el proceso de autenticación
 async function authenticateUser() {
-    try {
-        const requestToken = await createRequestToken();
-        if (requestToken) {
-            askUserForPermission(requestToken);
+    if (apiKey) {
+        try {
+            const requestToken = await createRequestToken();
+            if (requestToken) {
+                askUserForPermission(requestToken);
+            }
+        } catch (error) {
+            console.error('Error durante la autenticación:', error);
         }
-    } catch (error) {
-        console.error('Error durante la autenticación:', error);
+    } else {
+        alert('Por favor, establezca primero el API Key.');
     }
 }
 
 // Función para manejar la carga de la página de redirección
-// Debes llamar a esta función en la página a la que el usuario es redirigido después de autorizar la aplicación
-function handleRedirect() {
+async function handleRedirect() {
     const urlParams = new URLSearchParams(window.location.search);
     const requestToken = urlParams.get('request_token');
-    if (requestToken) {
-        createSessionId(requestToken);
+    const denied = urlParams.get('denied'); // Agrega esto para verificar si el usuario rechazó el consentimiento
+
+    if (requestToken && !denied) {
+        await createSessionId(requestToken);
+    } else if (denied) {
+        // Manejar la situación cuando el usuario rechaza el consentimiento
+        handleLogout();
     }
 }
 
-// Añade un botón de inicio de sesión a tu HTML y asígnale un evento de clic para iniciar la autenticación
-document.getElementById('loginButton').addEventListener('click', authenticateUser);
-
-// En tu página de redirección
-window.onload = function() {
-    // Parsea la URL para obtener el request token aprobado
-    const urlParams = new URLSearchParams(window.location.search);
-    const requestToken = urlParams.get('request_token');
-    if (requestToken) {
-        createSessionId(requestToken);
+window.onload = async function() {
+    const storedApiKey = localStorage.getItem('tmdbApiKey');
+    if (storedApiKey) {
+        apiKey = storedApiKey;
+        console.log('API Key recuperada:', apiKey);
     }
-    handleRedirect();
+
+    // Verifica si hay una sesión activa al cargar la página
+    const storedSessionId = localStorage.getItem('tmdbSessionId');
+    if (storedSessionId) {
+        sessionId = storedSessionId;
+        loggedIn = true;
+        updateUIAfterLogin();
+    } else {
+        // Asegúrate de ocultar los elementos si no hay sesión activa
+        updateUIForLogout();
+        // Maneja la redirección después de la autenticación de TMDB solo si no hay sesión almacenada
+        handleRedirect();
+    }
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadGenres();
-    loadFavorites(); // Carga los favoritos al iniciar la página si ya tienes un listId
-    // Intenta recuperar el listId almacenado
-    const storedListId = localStorage.getItem('tmdbListId');
-    if (storedListId) {
-        listId = storedListId;
-        loadFavorites(); // Si hay un listId, carga los favoritos
-    }
+    document.getElementById('loginButton').addEventListener('click', authenticateUser);
+    document.getElementById('setApiKeyButton').addEventListener('click', function() {
+        const userApiKey = prompt('Por favor, ingresa tu API Key:');
+        if (userApiKey) {
+            apiKey = userApiKey;
+            localStorage.setItem('tmdbApiKey', apiKey); // Almacena la API Key
+            console.log('API Key establecida:', apiKey);
+            loadGenres(); // Cargar géneros después de establecer la API Key
+        }
+    });
     document.getElementById('searchButton').addEventListener('click', function() {
         const keyword = document.getElementById('keyword').value;
         const genre = document.getElementById('genre').value || '';
@@ -111,15 +138,23 @@ document.getElementById('createListForm').addEventListener('submit', function(ev
 });
 
 async function loadGenres() {
-    const genreResponse = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=es-ES`);
-    const genreData = await genreResponse.json();
-    const genreSelect = document.getElementById('genre');
-    genreData.genres.forEach(genre => {
-        const option = document.createElement('option');
-        option.value = genre.id;
-        option.textContent = genre.name;
-        genreSelect.appendChild(option);
-    });
+    if (apiKey) {
+        try {
+            const genreResponse = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=es-ES`);
+            const genreData = await genreResponse.json();
+            const genreSelect = document.getElementById('genre');
+            genreData.genres.forEach(genre => {
+                const option = document.createElement('option');
+                option.value = genre.id;
+                option.textContent = genre.name;
+                genreSelect.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error al cargar géneros:', error);
+        }
+    } else {
+        console.error('API Key no establecida. No se pueden cargar los géneros.');
+    }
 }
 
 async function searchMovies(keyword, genre, page) {
@@ -337,3 +372,48 @@ function createMovieElement(movie, action) {
     movieElement.appendChild(favoriteButton);
     return movieElement;
 }
+
+// Nuevo botón para cerrar sesión
+document.getElementById('logoutButton').addEventListener('click', function() {
+    sessionId = '';
+    listId = null;
+    loggedIn = false;
+    updateUIForLogout(); // Función para actualizar la UI después del logout
+});
+
+// Función para actualizar la UI después de cerrar sesión
+function updateUIForLogout() {
+    document.getElementById('createListSection').style.display = 'none';
+    document.getElementById('favoritesFieldset').style.display = 'none';
+    document.getElementById('logoutButton').style.display = 'none';
+    document.getElementById('recoverListButton').style.display = 'none';
+    document.getElementById('loginButton').style.display = 'block';
+    // Limpia cualquier dato relacionado con la sesión
+    // Por ejemplo: Limpiar la lista de favoritos
+}
+
+// Función para actualizar la UI después de iniciar sesión
+function updateUIAfterLogin() {
+    if (loggedIn) {
+        document.getElementById('createListSection').style.display = 'block';
+        document.getElementById('favoritesFieldset').style.display = 'block';
+        document.getElementById('logoutButton').style.display = 'block';
+        document.getElementById('recoverListButton').style.display = 'block';
+        document.getElementById('loginButton').style.display = 'none';
+        loadFavorites();
+    }
+}
+
+// Función para pedir la API Key al usuario
+function askForApiKey() {
+    const userApiKey = prompt("Por favor, introduce tu API Key:");
+    if (userApiKey) {
+        apiKey = userApiKey;
+    } else {
+        alert("Se requiere una API Key para utilizar esta aplicación.");
+    }
+}
+
+// Agregar un botón y su funcionalidad para pedir la API Key
+document.getElementById('apiKeyButton').addEventListener('click', askForApiKey);
+
