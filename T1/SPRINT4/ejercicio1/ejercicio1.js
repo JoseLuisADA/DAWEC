@@ -1,4 +1,5 @@
-async function fetchPokemonData(pokemonName) {
+async function fetchPokemonData() {
+    const pokemonName = prompt('Inserta el nombre de un pokemon :');
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
         if (!response.ok) {
@@ -15,4 +16,4 @@ async function fetchPokemonData(pokemonName) {
     }
 }
 
-fetchPokemonData('pikachu');
+fetchPokemonData();
