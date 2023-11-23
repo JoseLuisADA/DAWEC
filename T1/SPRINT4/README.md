@@ -120,41 +120,53 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## Ejercicio 1: Información Básica del Pokémon
 
-![Foto 1 Test ejercicio 1](recursos/imagenes/tests/testsEjercicio1/testEjercicio1.png)
+![Foto 1 Test ejercicio 1](recursos/imagenes/ejercicio1/test1Ejercicio1.png)
 
-![Foto ejercicio 1](recursos/imagenes/ejercicio1/ejercicio1.png)
+![Foto ejercicio 1](recursos/gifs/ejercicio1/gifTest1Ejercicio1.gif)
 
-![Foto 2 Test ejercicio 1](recursos/imagenes/tests/testsEjercicio1/testEjercicio1.png)
+![Foto 2 ejercicio 1](recursos/imagenes/ejercicio1/test2Ejercicio1.png)
 
-![Foto 2 ejercicio 1](recursos/imagenes/ejercicio1/ejercicio1(2).png)
+![Foto 2 Test ejercicio 1](recursos/gifs/ejercicio1/gifTest3Ejercicio1.gif)
+
 
 ## Ejercicio 2: Comparativa de Pokémon
 
-![Foto 1 Test ejercicio 2](recursos/imagenes/tests/testsEjercicio2/testEjercicio2.png)
+![Foto 1 Test ejercicio 2](recursos/imagenes/ejercicio2/test1Ejercicio2.png)
 
-![Foto 1 ejercicio 2](recursos/imagenes/ejercicio2/ejercicio2.png)
+![Foto 1 ejercicio 2](recursos/gifs/ejercicio2/gifTest1Ejercicio2.gif)
 
-![Foto 2 Test ejercicio 2](recursos/imagenes/tests/testsEjercicio2/testEjercicio2.png)
+![Foto 2 Test ejercicio 2](recursos/imagenes/ejercicio2/test2Ejercicio2.png)
 
-![Foto 2 ejercicio 2](recursos/imagenes/ejercicio2/ejercicio2.png)
+![Foto 2 ejercicio 2](recursos/gifs/ejercicio2/gifTest2Ejercicio2.gif)
 
 ##  Ejercicio 3: Evoluciones y Habilidades
 
-![Foto 1 Test ejercicio 3](recursos/imagenes/tests/testsEjercicio3/testEjercicio3.png)
+![Foto 1 Test ejercicio 3](recursos/imagenes/ejercicio3/test1Ejercicio3.png)
 
-![Foto 1 ejercicio 3](recursos/imagenes/ejercicio3/ejercicio3.png)
+![Foto 1 ejercicio 3](recursos/gifs/ejercicio3/gifTest1Ejercicio3.gif)
 
-![Foto 2 Test ejercicio 3](recursos/imagenes/tests/testsEjercicio2/testEjercicio2.png)
+![Foto 2 Test ejercicio 3](recursos/imagenes/ejercicio3/test2Ejercicio3.png)
 
-![Foto 2 ejercicio 2](recursos/imagenes/ejercicio2/ejercicio2.png)
+![Foto 2 ejercicio 2](recursos/gifs/ejercicio3/gifTest2Ejercicio3.gif)
 
 ## Ejercicio 4 y 5: Explorador de Películas y Películas favoritas
 
-![Foto 1 Test ejercicio 4](recursos/imagenes/tests/testsEjercicio4/testEjercicio4.png)
+![Foto 1 Test ejercicio 4](recursos/imagenes/ejercicio4/test1Ejercicio4.png)
 
-![Foto 1 ejercicio 4](recursos/imagenes/ejercicio4/ejercicio4.png)
+![Foto 1 ejercicio 4](recursos/gifs/ejercicio4y5/gifTest1Ejercicio4.gif)
 
-![Foto 2 Test ejercicio 4](recursos/imagenes/tests/testsEjercicio2/testEjercicio2.png)
+![Foto 2 Test ejercicio 4](recursos/imagenes/ejercicio4/test2Ejercicio4.png)
 
-![Foto 2 ejercicio 4](recursos/imagenes/ejercicio2/ejercicio2.png)
+![Foto 2 ejercicio 4](recursos/gifs/ejercicio4y5/gifTest2Ejercicio4.gif)
 
+![Foto 1 Test ejercicio 5](recursos/imagenes/ejercicio5/test1Ejercicio5.png)
+
+![Foto 1 ejercicio 5](recursos/gifs/ejercicio4y5/gifTest1Ejercicio5.gif)
+
+![Foto 2 Test ejercicio 5](recursos/imagenes/ejercicio5/test2Ejercicio5.png)
+
+![Foto 2 ejercicio 5](recursos/gifs/ejercicio4y5/gifTest2Ejercicio5.gif)
+
+![Foto 3 Test ejercicio 5](recursos/imagenes/ejercicio5/test3Ejercicio5.png)
+
+![Foto 3 ejercicio 5](recursos/gifs/ejercicio4y5/gifTest3Ejercicio5.gif)

@@ -1,16 +1,39 @@
-let apiKey = '';
-let listId = null;
-let sessionId = ''; 
+let apiKey = localStorage.getItem('tmdbApiKey') || '';
+let listId = null; // Ya no se recupera de localStorage
+let sessionId = localStorage.getItem('tmdbSessionId') || '';
 let currentPage = 1;
-let loggedIn = false;
+let loggedIn = sessionId !== '';
 
-function handleLogout() {
-    sessionId = '';
-    listId = null;
-    loggedIn = false;
-    localStorage.removeItem('tmdbSessionId'); // Elimina la session_id del almacenamiento local
-    updateUIForLogout(); // Actualiza la UI para reflejar el estado de logout
-}
+document.addEventListener('DOMContentLoaded', function() {
+    ['loginButton', 'setApiKeyButton', 'searchButton', 'nextButton', 'prevButton', 'logoutButton'].forEach(buttonId => {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.addEventListener('click', window[`${buttonId}Event`]);
+        }
+    });
+
+    const createListForm = document.getElementById('createListForm');
+    if (createListForm) {
+        createListForm.addEventListener('submit', createListEvent);
+    }
+
+    // Eventos y carga inicial
+    document.getElementById('loginButton').addEventListener('click', authenticateUser);
+    document.getElementById('setApiKeyButton').addEventListener('click', setApiKey);
+    document.getElementById('searchButton').addEventListener('click', searchMoviesEvent);
+    document.getElementById('nextButton').addEventListener('click', nextPageEvent);
+    document.getElementById('prevButton').addEventListener('click', prevPageEvent);
+    document.getElementById('logoutButton').addEventListener('click', handleLogout);
+    document.getElementById('createListForm').addEventListener('submit', createListEvent);
+
+    if (apiKey) {
+        loadGenres();
+    }
+
+    if (loggedIn && listId) {
+        loadFavorites(); // Cargar favoritos si el usuario está autenticado y listId está disponible
+    }
+});
 
 document.getElementById('logoutButton').addEventListener('click', handleLogout);
 
@@ -26,10 +49,17 @@ async function createRequestToken() {
 
 // Función para redirigir al usuario para que autorice el token de solicitud
 function askUserForPermission(requestToken) {
-    const authUrl = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://127.0.0.1:5500/ejercicio4/ejercicio4.html`;
+    const authUrl = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://127.0.0.1:5500/ejercicio4y5/ejercicio4.html`;
     window.location.href = authUrl; // Redirige al usuario para la autorización
 }
 
+function handleLogout() {
+    sessionId = '';
+    listId = null;
+    loggedIn = false;
+    localStorage.removeItem('tmdbSessionId'); // Elimina la session_id del almacenamiento local
+    updateUIForLogout(); // Actualiza la UI para reflejar el estado de logout
+}
 // Función para crear una ID de sesión (session_id) con el token de solicitud autorizado
 async function createSessionId(requestToken) {
     try {
@@ -39,9 +69,12 @@ async function createSessionId(requestToken) {
         const data = await response.json();
         if (data.success) {
             sessionId = data.session_id;
-            localStorage.setItem('tmdbSessionId', sessionId); // Guarda la session_id en el almacenamiento local
-            loggedIn = true; // Establece loggedIn en true
-            updateUIAfterLogin(); // Actualiza la UI
+            localStorage.setItem('tmdbSessionId', sessionId); 
+            loggedIn = true;
+            updateUIAfterLogin();
+            if (listId) {
+                await loadFavorites(); // Cargar favoritos si ya se tiene un listId
+            }
         }
     } catch (error) {
         console.error('Error al crear la session_id:', error);
@@ -49,7 +82,10 @@ async function createSessionId(requestToken) {
 }
 
 async function authenticateUser() {
-    if (apiKey) {
+    if (!apiKey) {
+        alert('Por favor, establezca primero el API Key.');
+        return;
+    } else {
         try {
             const requestToken = await createRequestToken();
             if (requestToken) {
@@ -58,8 +94,6 @@ async function authenticateUser() {
         } catch (error) {
             console.error('Error durante la autenticación:', error);
         }
-    } else {
-        alert('Por favor, establezca primero el API Key.');
     }
 }
 
@@ -78,53 +112,30 @@ async function handleRedirect() {
 }
 
 window.onload = async function() {
-    const storedApiKey = localStorage.getItem('tmdbApiKey');
-    if (storedApiKey) {
-        apiKey = storedApiKey;
-        console.log('API Key recuperada:', apiKey);
+    apiKey = localStorage.getItem('tmdbApiKey') || '';
+    sessionId = localStorage.getItem('tmdbSessionId') || '';
+    listId = localStorage.getItem('tmdbListId');
+
+    console.log('API Key:', apiKey, 'Session ID:', sessionId, 'List ID:', listId);
+
+    if (!apiKey) {
+        console.log('API Key no establecida.');
+        return;
     }
 
-    // Verifica si hay una sesión activa al cargar la página
-    const storedSessionId = localStorage.getItem('tmdbSessionId');
-    if (storedSessionId) {
-        sessionId = storedSessionId;
-        loggedIn = true;
+    loggedIn = sessionId !== '';
+
+    if (loggedIn) {
         updateUIAfterLogin();
+        if (listId) {
+            console.log('Cargando favoritos...');
+            await loadFavorites();
+        }
     } else {
-        // Asegúrate de ocultar los elementos si no hay sesión activa
         updateUIForLogout();
-        // Maneja la redirección después de la autenticación de TMDB solo si no hay sesión almacenada
         handleRedirect();
     }
 };
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('loginButton').addEventListener('click', authenticateUser);
-    document.getElementById('setApiKeyButton').addEventListener('click', function() {
-        const userApiKey = prompt('Por favor, ingresa tu API Key:');
-        if (userApiKey) {
-            apiKey = userApiKey;
-            localStorage.setItem('tmdbApiKey', apiKey); // Almacena la API Key
-            console.log('API Key establecida:', apiKey);
-            loadGenres(); // Cargar géneros después de establecer la API Key
-        }
-    });
-    document.getElementById('searchButton').addEventListener('click', function() {
-        const keyword = document.getElementById('keyword').value;
-        const genre = document.getElementById('genre').value || '';
-        searchMovies(keyword, genre, 1);
-    });
-    document.getElementById('nextButton').addEventListener('click', function() {
-        const keyword = document.getElementById('keyword').value;
-        const genre = document.getElementById('genre').value;
-        nextPage(keyword, genre);
-    });
-    document.getElementById('prevButton').addEventListener('click', function() {
-        const keyword = document.getElementById('keyword').value;
-        const genre = document.getElementById('genre').value;
-        prevPage(keyword, genre);
-    });
-});
 
 document.getElementById('createListForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Previene el envío normal del formulario
@@ -207,8 +218,8 @@ function handlePaginationButtons(totalPages) {
     nextButton.disabled = currentPage >= totalPages;
 }
 
-document.getElementById('recoverListButton').addEventListener('click', function() {
-    const listName = prompt('Indica el nombre de tu lista de peliculas :'); // Reemplaza con el nombre de la lista que deseas recuperar
+document.getElementById('recoverListButton').addEventListener('click', function () {
+    const listName = prompt('Indica el nombre de tu lista de peliculas:');
     recoverListId(listName);
 });
 
@@ -225,8 +236,9 @@ async function recoverListId(listName) {
         const list = data.results.find(l => l.name === listName);
         if (list) {
             listId = list.id;
+            localStorage.setItem('tmdbListId', listId); // Guardar listId en localStorage
             console.log('Lista cargada');
-            loadFavorites(); // Cargar favoritos de la lista recuperada
+            await loadFavorites(); // Cargar favoritos de la lista recuperada
         } else {
             console.error('Lista no encontrada.');
         }
@@ -234,6 +246,7 @@ async function recoverListId(listName) {
         console.error('Error al recuperar listas:', error);
     }
 }
+
 
 async function createList(name, description) {
     if (!sessionId) {
@@ -268,9 +281,9 @@ async function createList(name, description) {
     }
 }
 
-async function addMovieToList(movieId) {
-    if (!listId) {
-        console.error('No hay una lista de favoritos establecida.');
+async function  addMovieToList(movieId) {
+    if (!listId || !loggedIn) {
+        console.error('No hay una lista de favoritos establecida o el usuario no está autenticado.');
         return;
     }
 
@@ -285,8 +298,8 @@ async function addMovieToList(movieId) {
         });
         const data = await response.json();
         if (data.success) {
-            console.log('Película añadida a la lista de favoritos.');
-            loadFavorites(); // Recargar la lista de favoritos para reflejar el cambio
+            console.log('Película añadida a la lista de favoritos:', movieId);
+            await loadFavorites(); // Actualizar la lista de favoritos después de la adición
         } else {
             console.error('Error al añadir la película a la lista:', data.status_message);
         }
@@ -296,8 +309,8 @@ async function addMovieToList(movieId) {
 }
 
 async function removeMovieFromList(movieId) {
-    if (!listId) {
-        console.error('No hay una lista de favoritos establecida.');
+    if (!listId || !loggedIn) {
+        console.error('No hay una lista de favoritos establecida o el usuario no está autenticado.');
         return;
     }
 
@@ -312,9 +325,9 @@ async function removeMovieFromList(movieId) {
         });
         const data = await response.json();
         if (data.success) {
-            console.log('Película eliminada de la lista de favoritos.');
+            console.log('Película eliminada de la lista de favoritos:', movieId);
 
-            // Encuentra y elimina el elemento de película del DOM
+            // Eliminar visualmente la película del DOM
             const movieElement = document.querySelector(`.movie[data-movie-id="${movieId}"]`);
             if (movieElement) {
                 movieElement.remove();
@@ -327,49 +340,68 @@ async function removeMovieFromList(movieId) {
     }
 }
 
+
 async function loadFavorites() {
-    if (listId) {
-        try {
-            const response = await fetch(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&language=es-ES`);
-            const data = await response.json();
-            const favoritesDiv = document.getElementById('favorite-results');
-            favoritesDiv.innerHTML = '';
-            data.items.forEach(movie => {
-                const movieElement = createMovieElement(movie, 'remove');
-                favoritesDiv.appendChild(movieElement);
-            });
-        } catch (error) {
-            console.error('Error al cargar los favoritos:', error);
+    if (!listId || !loggedIn) {
+        console.log('Falta listId o el usuario no está autenticado.');
+        return;
+    }
+
+    console.log('Cargando películas de la lista:', listId);
+
+    try {
+        // Agregar un timestamp al URL para prevenir la carga desde caché
+        const timestamp = new Date().getTime();
+        const response = await fetch(`https://api.themoviedb.org/3/list/${listId}?api_key=${apiKey}&language=es-ES&${timestamp}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        const data = await response.json();
+
+        console.log('Películas recibidas:', data.items);
+
+        const favoritesDiv = document.getElementById('favorite-results');
+        favoritesDiv.innerHTML = '';
+
+        data.items.forEach(movie => {
+            const movieElement = createMovieElement(movie, 'remove');
+            if (movieElement) {
+                favoritesDiv.appendChild(movieElement);
+            }
+        });
+    } catch (error) {
+        console.error('Error al cargar los favoritos desde la API:', error);
     }
 }
 
+
+
 function createMovieElement(movie, action) {
+    if (!movie || !movie.id) return null;
+
     const movieElement = document.createElement('div');
     movieElement.classList.add('movie');
     movieElement.dataset.movieId = movie.id;
-    const posterPath = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'path_to_default_image.jpg';
 
+    const posterPath = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : 'ruta_a_imagen_por_defecto.jpg';
     movieElement.innerHTML = `
         <img src="${posterPath}" alt="${movie.title}" class="movie-poster">
         <h3 class="movie-title">${movie.title}</h3>
         <p class="movie-release-date">Año de lanzamiento: ${movie.release_date}</p>
         <p class="movie-overview">${movie.overview}</p>
         <p class="movie-vote-average">Puntuación: ${movie.vote_average}</p>
+        <button class='favorite-button'>${action === 'add' ? 'Agregar a Favoritos' : 'Eliminar de Favoritos'}</button>
     `;
 
-    const favoriteButton = document.createElement('button');
-    favoriteButton.textContent = action === 'add' ? 'Agregar a Favoritos' : 'Eliminar de Favoritos';
-    favoriteButton.classList.add('favorite-button');
-    favoriteButton.onclick = function() {
-        if(action === 'add') {
-            addMovieToList(movie.id);
-        } else {
-            removeMovieFromList(movie.id);
+    const favoriteButton = movieElement.querySelector('.favorite-button');
+    favoriteButton.addEventListener('click', async () => {
+        if (action === 'remove') {
+            await removeMovieFromList(movie.id);
+        } else if (action === 'add') {
+            await addMovieToList(movie.id);
         }
-    };
+    });
 
-    movieElement.appendChild(favoriteButton);
     return movieElement;
 }
 
@@ -414,6 +446,80 @@ function askForApiKey() {
     }
 }
 
+// Funciones Auxiliares
+function setApiKey() {
+    const userApiKey = prompt('Por favor, ingresa tu API Key:');
+    if (userApiKey) {
+        apiKey = userApiKey;
+        localStorage.setItem('tmdbApiKey', apiKey);
+        console.log('API Key establecida:', apiKey);
+        loadGenres();
+    } else {
+        alert("Se requiere una API Key para utilizar esta aplicación.");
+    }
+}
+
+function searchMoviesEvent() {
+    const keyword = document.getElementById('keyword').value;
+    const genre = document.getElementById('genre').value || '';
+    searchMovies(keyword, genre, 1);
+}
+
+function nextPageEvent() {
+    const keyword = document.getElementById('keyword').value;
+    const genre = document.getElementById('genre').value;
+    nextPage(keyword, genre);
+}
+
+function prevPageEvent() {
+    const keyword = document.getElementById('keyword').value;
+    const genre = document.getElementById('genre').value;
+    prevPage(keyword, genre);
+}
+
+function createListEvent(event) {
+    event.preventDefault();
+    const listName = document.getElementById('listName').value;
+    const listDescription = document.getElementById('listDescription').value;
+    createList(listName, listDescription);
+}
+
 // Agregar un botón y su funcionalidad para pedir la API Key
 document.getElementById('apiKeyButton').addEventListener('click', askForApiKey);
+
+// Función para agregar una película a la lista de favoritos y actualizar la UI
+async function addMovieToList(movieId) {
+    if (!listId || !loggedIn) {
+        console.error('No hay una lista de favoritos establecida o el usuario no está autenticado.');
+        return;
+    }
+
+    const url = `https://api.themoviedb.org/3/list/${listId}/add_item?api_key=${apiKey}&session_id=${sessionId}`;
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({ media_id: movieId })
+        });
+        const data = await response.json();
+        if (data.success) {
+            console.log('Película añadida a la lista de favoritos:', movieId);
+            // Obtener la información de la película y agregarla visualmente
+            const movieResponse = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-ES`);
+            const movieData = await movieResponse.json();
+            const movieElement = createMovieElement(movieData, 'remove');
+            if (movieElement) {
+                document.getElementById('favorite-results').appendChild(movieElement);
+            }
+        } else {
+            console.error('Error al añadir la película a la lista:', data.status_message);
+        }
+    } catch (error) {
+        console.error('Error al añadir la película a la lista:', error);
+    }
+}
+
+
 
