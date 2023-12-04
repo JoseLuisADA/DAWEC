@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tareas</title>
+    <script defer src="ejercicio4.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <input type="text" id="tituloTarea" placeholder="Título de la tarea">
+    <button onclick="agregarTarea(document.getElementById('tituloTarea').value)">Agregar Tarea</button>
+    
+    <h2>Tareas</h2>
+    <ul id="listaTareas">
+        <!-- Las tareas se mostrarán aquí -->
+    </ul>
+
+    <h2>Tareas Importantes</h2>
+    <ul id="listaTareasImportantes">
+        <!-- Las tareas importantes se mostrarán aquí -->
+    </ul>
+</body>
+</html>

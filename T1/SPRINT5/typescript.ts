@@ -1,1 +1,0 @@
-const cadena : string = 'Hola mundo';

@@ -1,0 +1,7 @@
+@keyframes warningAnimation {
+    /* Define tu animación aquí */
+}
+
+.error {
+    animation: warningAnimation 1s ease;
+}

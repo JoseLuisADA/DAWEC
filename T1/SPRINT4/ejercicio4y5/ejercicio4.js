@@ -49,7 +49,7 @@ async function createRequestToken() {
 
 // Función para redirigir al usuario para que autorice el token de solicitud
 function askUserForPermission(requestToken) {
-    const authUrl = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://127.0.0.1:5500/ejercicio4y5/ejercicio4.html`;
+    const authUrl = `https://www.themoviedb.org/authenticate/${requestToken}?redirect_to=http://127.0.0.1:5500/ejercicio4.html`;
     window.location.href = authUrl; // Redirige al usuario para la autorización
 }
 

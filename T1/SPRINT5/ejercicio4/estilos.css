@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 5%;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+button {
+    padding: 5px 10px;
+    margin-left: 4px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+.btn-completar {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.btn-importante {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #d9534f;
+    color: white;
+}
+
+#tituloTarea {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.tarea-completada {
+    text-decoration: line-through;
+    color: #777;
+}
