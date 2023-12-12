@@ -18,10 +18,13 @@ Diferencias entre Java Script y TypeScript
 ```
 
 ``` 
-Configuración del entorno :
-
-- Hacer que en el directorio raiz del SPRINT 5 se transpilen a javascript los archivos typescript que hayan.
+Configurar el entorno para que en el directorio raiz del SPRINT 5 se transpilen los archivos typescript a javascript automaticamente
 ```
+Para configurar el entorno de la manera indicada hay que seguir los siguientes pasos :
+
+1. Abrir e repositorio SPRINT5 con Visual Studio
+
+2. 
 
 ```
 EJERCICIO
