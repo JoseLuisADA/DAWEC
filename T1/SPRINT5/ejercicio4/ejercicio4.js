@@ -1,9 +1,9 @@
 "use strict";
-let tareas = [];
+var tareas = [];
 function agregarTarea(titulo) {
-    const nuevaTarea = {
+    var nuevaTarea = {
         id: tareas.length + 1,
-        titulo,
+        titulo: titulo,
         completada: false,
         importante: false
     };
@@ -11,54 +11,54 @@ function agregarTarea(titulo) {
     renderizarTareas();
 }
 function marcarComoCompletada(id) {
-    const tarea = tareas.find(t => t.id === id);
+    var tarea = tareas.find(function (t) { return t.id === id; });
     if (tarea) {
         tarea.completada = !tarea.completada;
     }
     renderizarTareas();
 }
 function eliminarTarea(id) {
-    tareas = tareas.filter(t => t.id !== id);
+    tareas = tareas.filter(function (t) { return t.id !== id; });
     renderizarTareas();
 }
 function marcarComoImportante(id) {
-    const tarea = tareas.find(t => t.id === id);
+    var tarea = tareas.find(function (t) { return t.id === id; });
     if (tarea) {
         tarea.importante = true;
     }
     renderizarTareas();
     // Actualizar clase para estilo completado
-    const tareaElement = document.querySelector(`li[data-id="${id}"]`);
+    var tareaElement = document.querySelector("li[data-id=\"".concat(id, "\"]"));
     if (tareaElement) {
         tareaElement.classList.toggle('tarea-completada');
     }
 }
 function desmarcarComoImportante(id) {
-    const tarea = tareas.find(t => t.id === id);
+    var tarea = tareas.find(function (t) { return t.id === id; });
     if (tarea) {
         tarea.importante = false;
     }
     renderizarTareas();
 }
 function crearElementoTarea(tarea) {
-    const elementoTarea = document.createElement('li');
-    elementoTarea.textContent = `${tarea.titulo} - ${tarea.completada ? 'Completada' : 'Pendiente'}`;
+    var elementoTarea = document.createElement('li');
+    elementoTarea.textContent = "".concat(tarea.titulo, " - ").concat(tarea.completada ? 'Completada' : 'Pendiente');
     // Botón de completar tarea
-    const btnCompletar = document.createElement('button');
+    var btnCompletar = document.createElement('button');
     btnCompletar.textContent = 'Completar';
-    btnCompletar.onclick = () => marcarComoCompletada(tarea.id);
+    btnCompletar.onclick = function () { return marcarComoCompletada(tarea.id); };
     elementoTarea.appendChild(btnCompletar);
     // Botón de importante
-    const btnImportante = document.createElement('button');
+    var btnImportante = document.createElement('button');
     btnImportante.textContent = tarea.importante ? 'No es importante' : 'Importante';
-    btnImportante.onclick = () => {
+    btnImportante.onclick = function () {
         tarea.importante ? desmarcarComoImportante(tarea.id) : marcarComoImportante(tarea.id);
     };
     elementoTarea.appendChild(btnImportante);
     // Botón de eliminar tarea
-    const btnEliminar = document.createElement('button');
+    var btnEliminar = document.createElement('button');
     btnEliminar.textContent = 'Eliminar';
-    btnEliminar.onclick = () => eliminarTarea(tarea.id);
+    btnEliminar.onclick = function () { return eliminarTarea(tarea.id); };
     elementoTarea.appendChild(btnEliminar);
     elementoTarea.setAttribute('data-id', tarea.id.toString());
     btnCompletar.className = 'btn-completar';
@@ -67,16 +67,16 @@ function crearElementoTarea(tarea) {
     return elementoTarea;
 }
 function renderizarTareas() {
-    const listaTareas = document.getElementById('listaTareas');
-    const listaTareasImportantes = document.getElementById('listaTareasImportantes');
+    var listaTareas = document.getElementById('listaTareas');
+    var listaTareasImportantes = document.getElementById('listaTareasImportantes');
     listaTareas.innerHTML = '';
     listaTareasImportantes.innerHTML = '';
-    tareas.forEach(tarea => {
-        const elementoTarea = crearElementoTarea(tarea);
+    tareas.forEach(function (tarea) {
+        var elementoTarea = crearElementoTarea(tarea);
         listaTareas.appendChild(elementoTarea);
         if (tarea.importante) {
             // Clonar el elemento de la tarea para la lista de tareas importantes
-            const elementoTareaImportante = crearElementoTarea(tarea);
+            var elementoTareaImportante = crearElementoTarea(tarea);
             listaTareasImportantes.appendChild(elementoTareaImportante);
         }
     });

@@ -1,7 +1,148 @@
-@keyframes warningAnimation {
-    /* Define tu animación aquí */
+body{
+    background-image: url('https://images3.alphacoders.com/677/677583.png');
 }
 
-.error {
-    animation: warningAnimation 1s ease;
+.hidden {
+    display: none;
+}
+
+#error {
+    color: #ffff; /* Rojo para errores para más visibilidad */
+    margin-top: 10px;
+    font-weight: bold; /* Negrita para destacar errores */
+}
+
+#app {
+    text-align: center;
+    background-color: #cc0000; /* Rojo más oscuro para la Pokedex */
+    color: #f2f2f2; /* Blanco ligeramente grisáceo para el texto */
+    padding: 20px;
+    border-radius: 20px; /* Bordes más redondeados */
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    border: 5px solid black; /* Borde negro para simular el contorno de la Pokedex */
+    font-family: 'Press Start 2P', cursive; /* Fuente que se asemeja a la de los videojuegos */
+}
+
+#searchBox {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid black; /* Borde más definido */
+    border-radius: 10px; /* Entrada de texto más redondeada */
+    font-size: 16px; /* Texto más grande */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #e62e00; /* Rojo más vibrante para botones */
+    color: #fff;
+    border: 2px solid black; /* Bordes más definidos */
+    border-radius: 10px; /* Botones más redondeados */
+    padding: 10px 20px;
+    font-size: 16px; /* Texto más grande para los botones */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+    box-shadow: 0px 2px #b22222; /* Sombra para efecto 3D */
+}
+
+button:hover {
+    background-color: #f53b2a; /* Rojo claro al pasar el ratón */
+    box-shadow: 0px 2px #800000; /* Sombra oscura para mantener el efecto */
+}
+
+#pokemonInfo {
+    margin-top: 20px;
+    text-align: center; /* Centrado para mejor presentación */
+}
+
+.pokemon-container {
+    background-color: #fff;
+    color: black; /* Texto en negro para mejor lectura */
+    padding: 20px;
+    border-radius: 15px; /* Bordes más redondeados */
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra más ligera */
+    border: 3px solid #333; /* Borde más oscuro para definición */
+    display: grid; /* Utilizar grid para organizar la información */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas para distribuir la información */
+    gap: 10px; /* Espacio entre las columnas */
+}
+
+.pokemon-detail {
+    padding: 10px;
+    background-color: #f2f2f2; /* Fondo para cada detalle */
+    border-radius: 10px; /* Bordes redondeados para los detalles */
+    margin: 5px 0; /* Margen para separar cada detalle */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra interior para profundidad */
+}
+
+#listaPokemon {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.pokemon-list {
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #007bff; /* Azul para botones de paginación */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#paginaActual {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+#pokemonEvolutions {
+    margin-top: 20px;
+    text-align: center; /* Centrar el contenido de las evoluciones */
+}
+
+.evolution-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: underline;
+}
+
+.evolution-list {
+    list-style-type: none; /* Quitar estilos de lista */
+    padding: 0;
+    margin: 0;
+    display: inline-block; /* Para centrar la lista con respecto al contenedor */
+}
+
+.evolution-item {
+    display: inline-block; /* Mostrar elementos de evolución en línea */
+    margin: 0 10px; /* Espacio horizontal entre elementos */
+    vertical-align: top; /* Alinear los elementos en la parte superior */
+}
+
+.evolution-image {
+    width: 80px; /* Tamaño fijo para imágenes */
+    height: auto; /* Altura automática para mantener proporciones */
+    margin-bottom: 5px; /* Espacio entre imagen y texto */
+}
+
+.evolution-name {
+    display: block; /* Bloque para que tome su propia línea */
+    font-size: 14px; /* Tamaño de fuente para nombres de evolución */
+    color: #555;
 }
