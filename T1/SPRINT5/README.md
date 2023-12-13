@@ -22,15 +22,41 @@ Configurar el entorno para que en el directorio raiz del SPRINT 5 se transpilen 
 ```
 Para configurar el entorno de la manera indicada hay que seguir los siguientes pasos :
 
-1. Abrir el directorio SPRINT5 con Visual Studio.
+1. Buscar en la barra de busqueda del sistema, ```Windows Powershell```, una vez encontrado, hay que ejecutarlo como administrador e introducir en él, el comando ```Set-ExecutionPolicy RemoteSigned```. Después, introducir la vocal O, para dar un "Si a todo" y ya podremos cerrar el PowerShell.
 
-2. Abrir la terminal en Visual Studio, y una vez abierta, tiene que aparecer la ruta de la raiz del proyecto SPRINT5. A continuación, introduciremos en esta terminal una serie de comandos que se indicarán en los siguientes pasos.
+2. Abrir el directorio SPRINT5 con Visual Studio.
 
-3. Instalar typescript solo para este proyecto introduciendo este comando ```npm install -D typescript```
+3. Abrir la terminal en Visual Studio, y una vez abierta, tiene que aparecer la ruta de la raiz del proyecto SPRINT5. A continuación, introduciremos en esta terminal una serie de comandos que se indicarán en los siguientes pasos.
 
-4. Buscar en la barra de busqueda del sistema el Windows Powershell como administrador e 
+4. Iniciar un proyecto npm con valores de configuración por defecto introduciendo este comando ```npm init --y```
 
-3. Crear un archivo esencial para configurar las opciones de compilación de TypeScript introduciendo este comando ```tsc --init```
+5. Instalar typescript solo para este proyecto introduciendo este comando ```npm install -D typescript```
+
+6. Crear dos scripts en el archivo package.json para hacer uso del módulo tsc. Ejemplo del archivo package.json :
+
+```
+{
+  "name": "sprint5",
+  "version": "1.0.0",
+  "description": "Descripción del proyecto",
+  "main": "index.js",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc --init",
+    "tscw" : "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+
+
+
+5. Crear un archivo esencial para configurar las opciones de compilación de TypeScript introduciendo este comando ```tsc --init```
 
 ```
 EJERCICIO
