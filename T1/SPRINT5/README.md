@@ -22,9 +22,15 @@ Configurar el entorno para que en el directorio raiz del SPRINT 5 se transpilen 
 ```
 Para configurar el entorno de la manera indicada hay que seguir los siguientes pasos :
 
-1. Abrir e repositorio SPRINT5 con Visual Studio
+1. Abrir el directorio SPRINT5 con Visual Studio.
 
-2. 
+2. Abrir la terminal en Visual Studio, y una vez abierta, tiene que aparecer la ruta de la raiz del proyecto SPRINT5. A continuación, introduciremos en esta terminal una serie de comandos que se indicarán en los siguientes pasos.
+
+3. Instalar typescript solo para este proyecto introduciendo este comando ```npm install -D typescript```
+
+4. Buscar en la barra de busqueda del sistema el Windows Powershell como administrador e 
+
+3. Crear un archivo esencial para configurar las opciones de compilación de TypeScript introduciendo este comando ```tsc --init```
 
 ```
 EJERCICIO
