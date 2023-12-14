@@ -12,10 +12,26 @@ La tarea consta de los siguientes ejercicios :
 
 ```
 Diferencias entre Java Script y TypeScript
-
-
-
 ```
+
+1. Tipado Estático
+   - Errores en Tiempo de Compilación: TypeScript proporciona errores y advertencias durante la fase de compilación, no en tiempo de ejecución. Esto ayuda a identificar problemas antes de que el código se ejecute.
+   - Autocompletado y Refactorización: El tipado estático mejora la experiencia de desarrollo con funciones de autocompletado y herramientas de refactorización más robustas en los IDEs.
+
+2. Mejor Soporte para Herramientas de Desarrollo
+   - Integración con IDEs: TypeScript está bien integrado con entornos de desarrollo integrado (IDEs) como Visual Studio Code, proporcionando una mejor experiencia de desarrollo con características como resaltado de sintaxis, autocompletado, y navegación de código.
+   - Herramientas de Análisis de Código: Facilita el uso de herramientas para analizar el código, lo que ayuda a mantener la calidad y consistencia del código.
+
+3. **Mayor Legibilidad y Mantenibilidad del Código**
+   - **Claridad en el Código**: El uso de tipos hace que el código sea más fácil de leer y entender, especialmente en proyectos grandes.
+   - **Escalabilidad**: TypeScript es adecuado para proyectos grandes y complejos, ya que su estructura de tipado ayuda a gestionar y escalar el código de manera más eficiente.
+
+4. **Orientación a Objetos Avanzada**
+   - **Características de POO**: TypeScript ofrece características avanzadas de programación orientada a objetos, como clases, interfaces, y herencia, que no están presentes en JavaScript o son menos intuitivas de usar.
+
+5. **Comunidad y Ecosistema**
+   - **Adopción y Soporte**: TypeScript ha ganado una adopción significativa en la comunidad de desarrolladores. Muchas bibliotecas y frameworks populares ofrecen soporte y tipos para TypeScript.
+   - **Documentación y Recursos**: Hay una amplia gama de documentación, tutoriales y recursos de aprendizaje disponibles para TypeScript.
 
 ``` 
 Configurar el entorno para que en el directorio raiz del SPRINT 5 se transpilen los archivos typescript a javascript automaticamente
@@ -216,59 +232,41 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 # 📸 Pruebas
 
-## Ejercicio 1 : 
+## Ejercicio 1 : "Hola Mundo" en TypeScript
 
-![Foto 1 Test ejercicio 1](recursos/imagenes/ejercicio1/test1Ejercicio1.png)
+![Foto 1 Test ejercicio 1](recursos/multimediaPruebas/ejercicio1/ejercicio1.png)
 
-![Foto ejercicio 1](recursos/gifs/ejercicio1/gifTest1Ejercicio1.gif)
+![Foto ejercicio 1](recursos/multimediaEjercicios/gifs/ejercicio1/transpilacionPrueba1Ejercicio1.gif)
 
-![Foto 2 ejercicio 1](recursos/imagenes/ejercicio1/test2Ejercicio1.png)
+![Foto ejercicio 1](recursos/multimediaEjercicios/imagenes/ejercicio1/ejercicio1parte1.png)
 
-![Foto 2 Test ejercicio 1](recursos/gifs/ejercicio1/gifTest3Ejercicio1.gif)
+![Foto ejercicio 1](recursos/multimediaEjercicios/gifs/ejercicio1/transpilacionParte2Ejercicio1.gif)
+
+![Foto ejercicio 1](recursos/multimediaEjercicios/imagenes/ejercicio1/ejercicio1parte2.png)
+
+## Ejercicio 2 : Función con Tipos Básicos con Typescript
+
+![Foto 1 Test ejercicio 2](recursos/multimediaPruebas/ejercicio2/ejecicio2.png)
+
+![Foto ejercicio 2](recursos/multimediaEjercicios/gifs/ejercicio2/ejercicio2.gif)
 
 
-## Ejercicio 2 : 
+##  Ejercicio 3 : Uso de Interfaces con Typescript 
 
-![Foto 1 Test ejercicio 2](recursos/imagenes/ejercicio2/test1Ejercicio2.png)
+![Foto 1 Test ejercicio 3](recursos/multimediaPruebas/ejercicio3/ejercicio3.png)
 
-![Foto 1 ejercicio 2](recursos/gifs/ejercicio2/gifTest1Ejercicio2.gif)
+![Foto ejercicio 3](recursos/multimediaEjercicios/gifs/ejercicio3/ejercicio3.gif)
 
-![Foto 2 Test ejercicio 2](recursos/imagenes/ejercicio2/test2Ejercicio2.png)
+![Foto ejercicio 3](recursos/multimediaEjercicios/imagenes//ejercicio3/ejercicio3.png)
 
-![Foto 2 ejercicio 2](recursos/gifs/ejercicio2/gifTest2Ejercicio2.gif)
+## Ejercicio 4 : Manipulación de Arrays con Typescript
 
-##  Ejercicio 3 :
+![Foto 1 Test ejercicio 4](recursos/multimediaPruebas/ejercicio4/ejercicio4.png)
 
-![Foto 1 Test ejercicio 3](recursos/imagenes/ejercicio3/test1Ejercicio3.png)
+![Gif ejercicio 4](recursos/multimediaEjercicios/gifs/ejercicio4/ejercicio4.gif)
 
-![Foto 1 ejercicio 3](recursos/gifs/ejercicio3/gifTest1Ejercicio3.gif)
+## Ejercicio 5 : Crear una Pokedex con PokeAPI con Typescript
 
-![Foto 2 Test ejercicio 3](recursos/imagenes/ejercicio3/test2Ejercicio3.png)
+![Foto Test ejercicio 5](recursos/multimediaPruebas/ejercicio5/ejercicio5.png)
 
-![Foto 2 ejercicio 2](recursos/gifs/ejercicio3/gifTest2Ejercicio3.gif)
-
-## Ejercicio 4 : 
-
-![Foto 1 Test ejercicio 4](recursos/imagenes/ejercicio4/test1Ejercicio4.png)
-
-![Foto 1 ejercicio 4](recursos/gifs/ejercicio4y5/gifTest1Ejercicio4.gif)
-
-![Foto 2 Test ejercicio 4](recursos/imagenes/ejercicio4/test2Ejercicio4.png)
-
-![Foto 2 ejercicio 4](recursos/gifs/ejercicio4y5/gifTest2Ejercicio4.gif)
-
-![Foto 1 Test ejercicio 5](recursos/imagenes/ejercicio5/test1Ejercicio5.png)
-
-## Ejercicio 5 : 
-
-![Foto 1 Test ejercicio 5](recursos/imagenes/ejercicio5/test1Ejercicio5.png)
-
-![Foto 1 ejercicio 5](recursos/gifs/ejercicio4y5/gifTest1Ejercicio5.gif)
-
-![Foto 2 Test ejercicio 5](recursos/imagenes/ejercicio5/test2Ejercicio5.png)
-
-![Foto 2 ejercicio 5](recursos/gifs/ejercicio4y5/gifTest2Ejercicio5.gif)
-
-![Foto 3 Test ejercicio 5](recursos/imagenes/ejercicio5/test3Ejercicio5.png)
-
-![Foto 3 ejercicio 5](recursos/gifs/ejercicio4y5/gifTest3Ejercicio5.gif)
+![Gif ejercicio 5](recursos/multimediaEjercicios/gifs/ejercicio5/ejercicio5.gif)
