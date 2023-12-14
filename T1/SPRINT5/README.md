@@ -196,9 +196,9 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ## Ejercicio 4 : Manipulación de Arrays con Typescript
 
-[**Archivo HTML** ](ejercicio4y5/ejercicio4.html)
+[**Archivo HTML** ](ejercicio4/ejercicio4.html)
 
-[**Archivo JS** ](ejercicio4y5/ejercicio4.js)
+[**Archivo JS** ](ejercicio4/ejercicio4.js)
 
 [**Archivo TS** ](ejercicio4/ejercicio4.ts)
 
@@ -247,7 +247,7 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 
 ![Foto 2 ejercicio 2](recursos/gifs/ejercicio3/gifTest2Ejercicio3.gif)
 
-## Ejercicio 4 y 5 : 
+## Ejercicio 4 : 
 
 ![Foto 1 Test ejercicio 4](recursos/imagenes/ejercicio4/test1Ejercicio4.png)
 
@@ -256,6 +256,10 @@ Para entregar la tarea correctamente habrá que seguir el formato de entrega ind
 ![Foto 2 Test ejercicio 4](recursos/imagenes/ejercicio4/test2Ejercicio4.png)
 
 ![Foto 2 ejercicio 4](recursos/gifs/ejercicio4y5/gifTest2Ejercicio4.gif)
+
+![Foto 1 Test ejercicio 5](recursos/imagenes/ejercicio5/test1Ejercicio5.png)
+
+## Ejercicio 5 : 
 
 ![Foto 1 Test ejercicio 5](recursos/imagenes/ejercicio5/test1Ejercicio5.png)
 

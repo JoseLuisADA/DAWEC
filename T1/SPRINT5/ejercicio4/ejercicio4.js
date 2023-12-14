@@ -27,11 +27,7 @@ function marcarComoImportante(id) {
         tarea.importante = true;
     }
     renderizarTareas();
-    // Actualizar clase para estilo completado
-    var tareaElement = document.querySelector("li[data-id=\"".concat(id, "\"]"));
-    if (tareaElement) {
-        tareaElement.classList.toggle('tarea-completada');
-    }
+    document.querySelector("li[data-id=\"".concat(id, "\"]"));
 }
 function desmarcarComoImportante(id) {
     var tarea = tareas.find(function (t) { return t.id === id; });
@@ -45,12 +41,12 @@ function crearElementoTarea(tarea) {
     elementoTarea.textContent = "".concat(tarea.titulo, " - ").concat(tarea.completada ? 'Completada' : 'Pendiente');
     // Botón de completar tarea
     var btnCompletar = document.createElement('button');
-    btnCompletar.textContent = 'Completar';
+    btnCompletar.textContent = 'Poner Completada / Pendiente';
     btnCompletar.onclick = function () { return marcarComoCompletada(tarea.id); };
     elementoTarea.appendChild(btnCompletar);
     // Botón de importante
     var btnImportante = document.createElement('button');
-    btnImportante.textContent = tarea.importante ? 'No es importante' : 'Importante';
+    btnImportante.textContent = 'Poner Importante / No importante';
     btnImportante.onclick = function () {
         tarea.importante ? desmarcarComoImportante(tarea.id) : marcarComoImportante(tarea.id);
     };

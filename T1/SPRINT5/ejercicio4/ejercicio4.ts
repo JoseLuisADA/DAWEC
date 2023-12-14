@@ -37,11 +37,7 @@ function marcarComoImportante(id: number): void {
         tarea.importante = true;
     }
     renderizarTareas();
-    // Actualizar clase para estilo completado
-    const tareaElement = document.querySelector(`li[data-id="${id}"]`);
-    if (tareaElement) {
-        tareaElement.classList.toggle('tarea-completada');
-    }
+    document.querySelector(`li[data-id="${id}"]`);
 }
 
 function desmarcarComoImportante(id: number): void {
@@ -58,13 +54,13 @@ function crearElementoTarea(tarea: Tarea): HTMLElement {
     
     // Botón de completar tarea
     const btnCompletar = document.createElement('button');
-    btnCompletar.textContent = 'Completar';
+    btnCompletar.textContent = 'Poner Completada / Pendiente';
     btnCompletar.onclick = () => marcarComoCompletada(tarea.id);
     elementoTarea.appendChild(btnCompletar);
     
     // Botón de importante
     const btnImportante = document.createElement('button');
-    btnImportante.textContent = tarea.importante ? 'No es importante' : 'Importante';
+    btnImportante.textContent = 'Poner Importante / No importante';
     btnImportante.onclick = () => {
         tarea.importante ? desmarcarComoImportante(tarea.id) : marcarComoImportante(tarea.id);
     };
