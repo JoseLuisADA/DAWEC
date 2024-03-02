@@ -1,12 +1,12 @@
 // src/components/ForoWiki.js
 import React, { useContext, useState, useEffect } from 'react';
+import { collection, getDocs, addDoc, updateDoc, doc, query, orderBy } from 'firebase/firestore';
+import { db, auth } from '../firebase-config';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import ListaArticulos from './ListaArticulos';
 import EditorArticulo from './EditorArticulo';
 import UsuarioContext from './UsuarioContext';
-import { db, auth } from '../firebase-config';
-import { collection, getDocs, addDoc, updateDoc, doc } from 'firebase/firestore';
-import { signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
 
 function ForoWiki() {
   const usuario = useContext(UsuarioContext);
@@ -24,11 +24,13 @@ function ForoWiki() {
     fetchComentarios();
   }, [articuloActual]);
 
-  // Obtener todos los artículos
-  const fetchArticulos = async () => {
-    const querySnapshot = await getDocs(collection(db, "articulo"));
-    setArticulos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-  };
+const fetchArticulos = async () => {
+  // Crear una consulta que ordene los documentos por 'fechaCreacion' en orden descendente
+  const articulosQuery = query(collection(db, "articulo"), orderBy("fechaCreacion", "desc"));
+
+  const querySnapshot = await getDocs(articulosQuery);
+  setArticulos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+};
 
   // Obtener todos los comentarios
   const fetchComentarios = async () => {
