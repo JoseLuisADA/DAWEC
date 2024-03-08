@@ -71,6 +71,10 @@
             navigate('/login'); 
         };
 
+        const handleForo = async () => {
+            navigate('/'); 
+        };
+
         const handleUpdateEmail = async () => {
             if (user) {
                 try {
@@ -89,13 +93,14 @@
 
         return (
             <div className="form-container">
+                <button className="form-button" onClick={handleForo}>Página de inicio</button>
                 <h2 className="form-title">Perfil de Usuario</h2>
                 {avatar && <img src={avatar} alt="Avatar" style={{width: '100px', height: '100px', borderRadius: '50%'  }} />}
                 <h3>{name}</h3>
                 <h2 className="form-title">Editar perfil</h2>
                 <p>Cambiar foto de perfil :</p>
                 <input className="form-input" id="profilePicture" name="profilePicture" type="file" onChange={handleFileChange} />
-                <button className="form-butt2on" onClick={uploadImage}>Cambiar foto de perfil</button>
+                <button className="form-button" onClick={uploadImage}>Cambiar foto de perfil</button>
                 <p>Cambiar Correo Electrónico:</p>
                 <input className="form-input" type="email" value={newEmail} onChange={(e) => setNewEmail(e.target.value)} placeholder="Nuevo correo electrónico"/>
                 {emailError && <div style={{ color: 'red' }}>{emailError}</div>}

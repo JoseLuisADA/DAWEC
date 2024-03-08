@@ -5,38 +5,49 @@ import Login from './components/Login';
 import Registrarse from './components/Registrarse';
 import PerfilUsuario from './components/PerfilUsuario';
 import ForoWiki from './components/ForoWiki';
-import UsuarioContext from './components/UsuarioContext'; // Asegúrate de importar UsuarioContext
+import UsuarioContext from './components/UsuarioContext';
 import { auth } from './firebase-config';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+    const [usuario, setUsuario] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // Guardar datos del usuario en el estado
+                setUsuario({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                });
+            } else {
+                setUsuario(null);
+            }
+            setLoading(false);
+        });
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
+        return () => unsubscribe();
+    }, []);
 
-  return (
-    <UsuarioContext.Provider value={user}> {/* Envuelve tus componentes con UsuarioContext.Provider */}
-      <Router>
-        <Routes>
-          <Route path="/registrarse" element={<Registrarse />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/perfil" element={user ? <PerfilUsuario /> : <Navigate to="/login" />} />
-          <Route path="/" element={user ? <ForoWiki /> : <Navigate to="/login" />} />
-        </Routes>
-      </Router>
-    </UsuarioContext.Provider>
-  );
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
+
+    return (
+        <UsuarioContext.Provider value={{ usuario }}>
+            <Router>
+                <Routes>
+                    <Route path="/registrarse" element={<Registrarse />} />
+                    <Route path="/login" element={<Login onLogin={setUsuario} />} />
+                    <Route path="/perfil" element={usuario ? <PerfilUsuario /> : <Navigate to="/login" />} />
+                    <Route path="/" element={<ForoWiki />} />
+                </Routes>
+            </Router>
+        </UsuarioContext.Provider>
+    );
 }
 
 export default App;

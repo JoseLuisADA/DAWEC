@@ -1,7 +1,6 @@
-// src/components/ListaComentarios.js
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebase-config';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, onSnapshot } from 'firebase/firestore'; // Importa 'onSnapshot' para escuchar cambios en tiempo real
 
 function ListaComentarios({ articuloId }) {
   const [comentarios, setComentarios] = useState([]);
@@ -12,12 +11,15 @@ function ListaComentarios({ articuloId }) {
 
       const q = query(collection(db, "comentario"), where("articuloId", "==", articuloId));
       try {
-        const querySnapshot = await getDocs(q);
-        const comentariosCargados = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setComentarios(comentariosCargados);
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+          const comentariosCargados = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setComentarios(comentariosCargados);
+        });
+
+        return () => unsubscribe(); // Detiene la escucha de cambios cuando el componente se desmonta
       } catch (error) {
         console.error("Error al cargar los comentarios: ", error);
       }
@@ -41,4 +43,3 @@ function ListaComentarios({ articuloId }) {
 }
 
 export default ListaComentarios;
-  

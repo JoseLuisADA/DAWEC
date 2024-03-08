@@ -34,8 +34,6 @@ code {
   border-radius: 5px;
 }
 
-
-
 .form-button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -47,6 +45,24 @@ code {
 
 .form-button:hover {
   background-color: #0056b3;
+}
+
+.form-button-editar {
+  padding: 10px 20px;
+  background-color: #f3991a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button-editar:hover {
+  padding: 10px 20px;
+  background-color: #d9b788;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .form-button-logout {

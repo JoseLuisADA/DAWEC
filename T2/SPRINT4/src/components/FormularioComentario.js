@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'; // Añade useContext aquí
+import React, { useContext, useState } from 'react';
 import { db } from '../firebase-config';
 import { collection, addDoc } from "firebase/firestore";
 import UsuarioContext from './UsuarioContext';
 
 function FormularioComentario({ articuloId }) {
   const [comentario, setComentario] = useState('');
-  const usuario = useContext(UsuarioContext); // Ahora useContext está definido y puede ser utilizado
+  const { usuario } = useContext(UsuarioContext); // Usa la destructuración para obtener 'usuario' del contexto
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,12 +13,15 @@ function FormularioComentario({ articuloId }) {
       alert("El comentario no puede estar vacío.");
       return;
     }
+    if (!usuario) {
+      console.error("Usuario no logueado.");
+      return; // Asegúrate de que haya un usuario logueado antes de intentar enviar un comentario
+    }
     try {
       await addDoc(collection(db, "comentario"), {
         articuloId,
         texto: comentario,
-        usuarioId: usuario.uid // Asumiendo que quieres usar el ID del usuario aquí
-        // Puedes añadir más campos como el autorId si es necesario
+        usuarioId: usuario.uid // Utiliza el ID del usuario obtenido del contexto
       });
       setComentario(''); // Limpiar el formulario después de enviar
     } catch (error) {

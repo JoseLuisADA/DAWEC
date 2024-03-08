@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../firebase-config'; // Asegúrate de que la ruta es correcta
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'; 
 import { doc, setDoc } from "firebase/firestore";
+import BotonesNavegacion from './BotonesNavegacion';
 
 function SignUp() {
     const [nombre, setName] = useState('');
@@ -56,7 +57,7 @@ function SignUp() {
 
     return (
         <div className="form-container">
-            <a href="http://localhost:3000/login">Login</a>
+            <BotonesNavegacion/>
             <h2 className="form-title">Registrarse</h2>
             <input className="form-input" type="text" value={nombre} onChange={(e) => setName(e.target.value)} placeholder="Nombre de usuario" required />
             <input className="form-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />

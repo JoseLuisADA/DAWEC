@@ -1,8 +1,12 @@
 // src/components/Articulo.js
-import React from 'react';
+import React, { useContext } from 'react';
+import UsuarioContext from './UsuarioContext';
+import FormularioComentario from './FormularioComentario';
+import ListaComentarios from './ListaComentarios';
 
-function Articulo({ articulo, onEdit }) {
- 
+function Articulo({ articulo, onEdit, onBorrar, usuarioRol }) {
+  const { usuario } = useContext(UsuarioContext);
+
   // Convertir el Timestamp de Firestore a un objeto Date y luego a un string de fecha
   const fechaCreacion = articulo.fechaCreacion.toDate(); // Convertir Timestamp a objeto Date
 
@@ -21,10 +25,20 @@ function Articulo({ articulo, onEdit }) {
 
   return (
     <div>
+      <hr/>
+      {usuarioRol === 'admin' && (
+        <>
+          <button className="form-button" onClick={() => onEdit(articulo)}>Editar artículo</button>
+          <button className="form-button-logout" onClick={onBorrar}>Borrar artículo</button>
+        </>
+      )}
       <h2>{articulo.titulo}</h2>
-      <button onClick={() => onEdit(articulo)}>Editar artículo</button>
       <p>{articulo.contenido}</p>
-      <p>{fechaYHoraFormateadas}</p> {/* Mostrar la fecha formateada */}
+      <p>{fechaYHoraFormateadas}</p>
+      {/* Mostrar formulario de comentario solo si hay usuario logueado */}
+      {usuario && <FormularioComentario articuloId={articulo.id} />}
+      {/* Lista de comentarios siempre visible para todos */}
+      <ListaComentarios articuloId={articulo.id} />
     </div>
   );
 }

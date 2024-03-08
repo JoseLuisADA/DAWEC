@@ -4,6 +4,7 @@ function EditorArticulo({ articuloActual, onSave, onCancel }) {
   const [titulo, setTitulo] = useState('');
   const [contenido, setContenido] = useState('');
 
+  // Actualizar los campos del editor con los valores actuales del artículo
   useEffect(() => {
     if (articuloActual) {
       setTitulo(articuloActual.titulo);
