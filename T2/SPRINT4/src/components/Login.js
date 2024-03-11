@@ -50,7 +50,7 @@ function SignIn({ onLogin }) {
     return (
         <div className="form-container">
             <button className="form-button" onClick={handleInicio}>Inicio</button>
-            <br/>c:\Users\selut\Documents\GitHub\DAWEC\T2\SPRINT3\README.md
+            <br/>
             <BotonesNavegacion/>
             <h2 className="form-title">Iniciar Sesión</h2>
             <input className="form-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
